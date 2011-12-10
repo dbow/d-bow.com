@@ -1,0 +1,25 @@
+application: dbow-site
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /favicon\.ico
+  static_files: static/img/favicon.ico
+  upload: static/img/favicon.ico
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /animation
+  static_dir: animation
+
+- url: /fonts
+  static_dir: fonts
+
+- url: .*
+  script: main.py
