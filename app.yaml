@@ -1,13 +1,13 @@
 application: dbow-site
-version: 1
+version: 2
 runtime: python
 api_version: 1
 
 handlers:
 
 - url: /favicon\.ico
-  static_files: static/img/favicon.ico
-  upload: static/img/favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
 
 - url: /css
   static_dir: css

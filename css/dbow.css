@@ -38,7 +38,7 @@ p {
     font-size: 2.5em;
     margin-left: 0.333em;
     margin-top: 1em;
-    font-family: 'DINRegular';
+    font-family: 'DINRegular', 'Arial', sans-serif;
   }
 
   #left-nav li {
@@ -102,7 +102,7 @@ p {
   .content-subcontainer h2 {
     font-size: 2.5em;
     padding-bottom: 0.33em;
-    font-family: 'DINRegular';
+    font-family: 'DINRegular', 'Arial', sans-serif;
   }
   
   .content-body {
@@ -136,7 +136,7 @@ p {
   }
 
 #ball-pit {
-  float: left;
+  clear: both;
 }
 
 #ball-pit :focus {
@@ -144,7 +144,7 @@ p {
 }
 
 #credits {
-  position: absolute;
+  position: fixed;
   right: 1em;
   bottom: 1em;
   font-size: 0.7em;
