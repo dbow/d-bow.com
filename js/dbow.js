@@ -7,8 +7,8 @@ var page = window.location.hash;
 DBOW.Util = (function () {
 
     var me = {},
-        displayedContent = $('#about-content'),
-        displayedNav = $('li.about'),
+        displayedContent = '#about-content',
+        displayedNav = 'li.about',
         contentColors = {'#About': '#33CCFF',
                          '#Projects': '#FFCC00',
                          '#Resume': '#D53817',
@@ -16,39 +16,38 @@ DBOW.Util = (function () {
 
     me.showContent = function () {
       
-      displayedContent.removeClass('displayed');
-      displayedNav.removeClass('displayed-nav');
+      $(displayedContent).removeClass('displayed');
+      $(displayedNav).removeClass('displayed-nav');
       
       switch (page) {  
          case "#About":  
-            displayedContent = $('#about-content');
-            displayedNav = $('li.about');
+            displayedContent = '#about-content';
+            displayedNav = 'li.about';
             break;  
          case "#Projects":  
-            displayedContent = $('#projects-content');
-            displayedNav = $('li.projects');
+            displayedContent = '#projects-content';
+            displayedNav = 'li.projects';
             break;  
          case "#Resume":  
-            displayedContent = $('#resume-content');
-            displayedNav = $('li.resume');
+            displayedContent = '#resume-content';
+            displayedNav = 'li.resume';
             break;  
          case "#Contact":  
-            displayedContent = $('#contact-content');
-            displayedNav = $('li.contact');
+            displayedContent = '#contact-content';
+            displayedNav = 'li.contact';
             break;   
          default:  
-            displayedContent = $('#about-content');
-            displayedNav = $('li.about');
+            displayedContent = '#about-content';
+            displayedNav = 'li.about';
         }
-        displayedContent.addClass('displayed');
-        displayedNav.addClass('displayed-nav');
-        var newAnchors = displayedContent.find('a');
-        newAnchors.hover(
-          function() {
-            $(this).css('color', contentColors[page]);
-          },function() {
-            $(this).css('color', '#FFF');
-        });
+        $(displayedNav).addClass('displayed-nav');
+        $(displayedContent).addClass('displayed')
+                           .find('a')
+                           .hover(function() {
+                             $(this).css('color', contentColors[page]);
+                           },function() {
+                             $(this).css('color', '#FFF');
+                           });
     };
 
     return me;
@@ -61,12 +60,22 @@ DBOW.Setup = (function () {
     var me = {};
 
     me.interactions = function () {
-      
-      $('#left-nav').find('a').click(function(e) {
+
+      // Set up Nav click handlers.
+      $(document).on('click', 'a.nav-link', function(e) {
         page = e.currentTarget.hash;
         DBOW.Util.showContent(page);
         _gaq.push(['_trackPageview', page]);
       });
+      // Set up Blog click handler.
+      $(document).on('click', 'a.blog-link', function(e) {
+        _gaq.push(['_trackPageview', '#Blog']);
+      });
+      // Set up outbound link click handlers.
+      $(document).on('click', 'a:not(".nav-link"):not(".blog-link")', function(e) {
+        _gaq.push(['_trackEvent', 'Outbound Link', $(this).attr('href')]);
+      });
+
     };
 
     return me;

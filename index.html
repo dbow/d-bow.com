@@ -13,10 +13,11 @@
 		<div id="left-nav">
 			<h1>DANNY<br />BOWMAN</h1>
 			<ul>
-				<a href="#About"><li class="about not-displayed-nav">About</li></a>
-				<a href="#Projects"><li class="projects not-displayed-nav">Projects</li></a>
-				<a href="#Resume"><li class="resume not-displayed-nav">Resume</li></a>
-				<a href="#Contact"><li class="contact not-displayed-nav">Contact</li></a>
+				<a href="#About" class="nav-link"><li class="about not-displayed-nav">About</li></a>
+				<a href="#Projects" class="nav-link"><li class="projects not-displayed-nav">Projects</li></a>
+				<a href="#Resume" class="nav-link"><li class="resume not-displayed-nav">Resume</li></a>
+				<a href="#Contact" class="nav-link"><li class="contact not-displayed-nav">Contact</li></a>
+				<a href="http://blog.d-bow.com" class="blog-link"><li class="blog not-displayed-nav">Blog</li></a>
 			</ul>
 		</div>
 		<div id="right-content" class="clearfix">
@@ -24,8 +25,8 @@
 				<div class="content-subcontainer">
 					<h2>ABOUT</h2>
 					<div class="content-body">
-						<p>I'm a software developer and program manager based in San Francisco.</p>
-						<p>I currently spend most of my time working on projects for <a href="http://www.brutelabs.org">BRUTE LABS</a> and doing freelance web development.  I previously worked at Google as a product specialist, internal tools developer, and operations guy in the Enterprise apps group.</p>
+						<p>I'm a software engineer at a gaming startup called Funzio, based in San Francisco.</p>
+						<p>I spend most of my free time working as a product manager and developer for my non-profit <a href="http://www.brutelabs.org">BRUTE LABS</a>.  I previously worked at Google as a product specialist, internal tools developer, and operations guy in the Enterprise apps group.</p>
 						<p>I love learning new things (especially new technologies).  I also like biking, tea, data analysis, recording <a href="http://eggyrecords.blogspot.com/2009/09/these-are-three-latest-releases-from.html">music</a> with a tape player, southern style chicken sandwiches, optimizing systems, and <a href="https://picasaweb.google.com/lh/photo/2y7uedPEW5x1cX3gMCJ6dD5wkiSZmM0FbXhobdmcDzo?feat=directlink">bowling</a>.</p>
 					</div>
 				</div>
@@ -39,8 +40,11 @@
 							<li><a href="http://www.projectopensf.org">projectOPEN</a> | product manager and developer
 								<div>Enables organizations supporting the homeless in San Francisco to create and print custom maps of open resources in the city. [<a href="https://github.com/bowman224/Project-OPEN">source</a>].</div>
 							</li>
+							<li><a href="http://www.noizzze.com">Noizzze</a> | developer
+								<div>An HTML5 Audio sound collage application I came up with while watching <a href="http://www.sonami.net/works/performance/">this artist</a> perform in SF.  Work in progress [<a href="https://github.com/bowman224/noizzze">source</a>].</div>
+							</li>  
 							<li>StudentsConnect | product manager and developer
-								<div>A sort of "chat roulette for students" - allows students in different countries/geographies to video chat with one another.  In early development. [<a href="https://github.com/bowman224/StudentsConnect">source</a>]</div>
+								<div>A sort of "chat roulette for students" - students in different countries can practice language skills via video chat. In early development. [<a href="https://github.com/bowman224/StudentsConnect">source</a>]</div>
 							</li>
 							<li><a href="http://www.mchopa.com">Mchopa</a> | developer
 								<div>An ecommerce site for an artist in Tanzania.  Google.org <a href="http://blog.google.org/2010/07/open-source-altruism.html">blogged</a> about it!</div>
@@ -60,9 +64,9 @@
 					<div class="content-body">
 						<h4>Experience</h4>
 							<ul>
+								<li>Software Engineer | Funzio, Inc. | Jan 2012 - Present</li>
 								<li>Head of Technology | BRUTE LABS | 2009 - Present</li>
-								<li>Product Specialist | Google, Inc. | June 2010 - August 2011</li>
-								<li>Enterprise Program Manager | Google, Inc. | March 2010 - June 2010</li>
+								<li>Product Specialist | Google, Inc. | Sep 2008 - August 2011</li>
 							</ul>
 						<h4>Education</h4>
 							<ul>
@@ -70,8 +74,8 @@
 							</ul>
 						<h4>Skills</h4>
 							<ul>
-								<li>Programming: JavaScript, Python, Java</li>
-								<li>Web Development: Google App Engine, HTML/CSS, JQuery, NodeJS, MongoDB, Google Analytics, AJAX</li>
+								<li>Programming: JavaScript, Python</li>
+								<li>Web Development: JQuery, HTML/CSS, Google App Engine, NodeJS, MongoDB, Google Analytics</li>
 								<li>Operations: Salesforce Administration and Development</li>
 							</ul>
 						<br />
@@ -86,6 +90,7 @@
 						<p><a href="http://www.linkedin.com/in/dbowman123">linkedIn</a></p>
 						<p><a href="http://www.twitter.com/dbow1234">twitter</a></p>
 						<p><a href="https://plus.google.com/u/0/111986384054479005896/about">g+</a></p>
+						<p><a href="http://open.spotify.com/user/dbowman123"><img alt="Follow me on Spotify" src="https://d2c87l0yth4zbw.cloudfront.net/i/social-badge-en.png" title="Follow me on Spotify"></a></p>
 					</div>
 				</div>
         	</div>
@@ -99,11 +104,11 @@
 	</div>
 	<script src="https://www.google.com/jsapi?key=ABQIAAAAsWgrXjYmJxEouxuULdYKqxSSyuqVAYyKJD-Gb5NLbXB0Xbp41xRjOwMJbO98kWC84O-CaWl6oNbTYw" type="text/javascript"></script>
 	<script type="text/javascript">
-		google.load("jquery", "1.6.4");
+		google.load("jquery", "1.7.1");
 		google.load("jqueryui", "1.8.16");
 	</script>	
 	<script type="text/javascript" src="js/dbow.js"></script>
-	<script src="js/processing-1.3.0.min.js"></script> 
+	<script src="js/processing-1.3.6.min.js"></script> 
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
