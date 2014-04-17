@@ -83,7 +83,85 @@ p {
   float: right;
   width: 70%;
   min-height: 37em;
+  position: relative;
 }
+
+  #game-content {
+      float: right;
+      margin-top: 50px;
+      font-size: 2em;
+      font-family: 'DINRegular', 'Arial', sans-serif;
+      position: relative;
+      display: none;
+      z-index: 5;
+  }
+    #game-play {
+      display: none;
+    }
+    .game-container {
+      background-color: #999;
+      border-radius: 0.25em;
+      padding: 0.22em;
+    }
+    .game-inner {
+      background-color: #1B1B1B;
+      color: #FFF;
+      padding: 0.22em;
+    }
+    .game-instructions {
+      font-size: 0.5em;
+    }
+    #game-countdown {
+      margin-top: 0.2em;
+      font-size: 0.7em;
+      position: absolute;
+      top: 110%;
+      display: none;
+    }
+      #game-countdown span {
+        color: #D53817;
+      }
+    #game-start {
+    }
+    #game-start:hover {
+      background-color: #999;
+      color: #1B1B1B;
+      cursor: pointer;
+    }
+    #game-scores {
+      position: absolute;
+      left: -50%;
+      top: -50%;
+      font-size: 0.8em;
+    }
+      #game-scores li {
+        margin-left: 0.1em;
+      }
+      .game-score {
+        color: #0AB3D1;
+      }
+      .game-name {
+        color: #FFC600;
+        margin-left: 0.2em;
+      }
+    #game-winner {
+      position: absolute;
+      font-size: 0.8em;
+      background-color: #333;
+      border-radius: 0.25em;
+      padding: 0.3em;
+      top: 110%;
+      left: 0;
+      display: none;
+    }
+      #game-high-score {
+        color: #FFC600;
+      }
+      #game-validation {
+        display: none;
+        font-size: 0.7em;
+        color: #D53817;
+      }
 
   .content-container {
     float: left;
@@ -94,7 +172,7 @@ p {
   }
   
   div.contact {
-    margin-top: 13.83em;
+    margin-top: 6em;
   }
   
   .content-subcontainer {
@@ -138,6 +216,10 @@ p {
     #resume-content ul {
       margin-bottom: 0.71em;
     }
+    
+    #contact-content img {
+      margin: 4px 0px;
+    }
   
   .displayed {
     display: inline;
@@ -150,6 +232,10 @@ p {
 #ball-pit :focus {
   outline: none;
 }
+
+  #ball-pit-canvas {
+    -webkit-transform: translateZ(0);
+  }
 
 #credits {
   position: fixed;

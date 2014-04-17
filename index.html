@@ -25,11 +25,34 @@
 				<div class="content-subcontainer">
 					<h2>ABOUT</h2>
 					<div class="content-body">
-						<p>I'm a software engineer at a gaming startup called Funzio, based in San Francisco.</p>
-						<p>I spend most of my free time working as a product manager and developer for my non-profit <a href="http://www.brutelabs.org">BRUTE LABS</a>.  I previously worked at Google as a product specialist, internal tools developer, and operations guy in the Enterprise apps group.</p>
-						<p>I love learning new things (especially new technologies).  I also like biking, tea, data analysis, recording <a href="http://eggyrecords.blogspot.com/2009/09/these-are-three-latest-releases-from.html">music</a> with a tape player, southern style chicken sandwiches, optimizing systems, and <a href="https://picasaweb.google.com/lh/photo/2y7uedPEW5x1cX3gMCJ6dD5wkiSZmM0FbXhobdmcDzo?feat=directlink">bowling</a>.</p>
+                        <p>I'm a frontend software engineer at <a href="http://www.chartbeat.com">Chartbeat</a>, based in New York City. Here are some of my projects: <a href="https://chartbeat.com/labs/rising/">rising</a>, <a href="https://chartbeat.com/publishing/perspectives/demo/">perspectives</a>, and <a href="https://chartbeat.com/publishing/for-adsales/overview">ads dashboard</a> (no public demo right now). And I wrote a <a href="http://blog.chartbeat.com/2013/06/18/sound-and-color-data-as-art/">post</a> about some other stuff I worked on during hack weeks.</p>
+            <p>I spend my free time working as a product manager and developer for my non-profit <a href="http://www.brutelabs.org">BRUTE LABS</a>, and on other <a href="https://github.com/Bowman224">side projects</a>.  I previously worked at Funzio (<a href="http://techcrunch.com/2012/05/01/gree-acquires-mobile-social-game-developer-funzio-terms-are-undisclosed/">and then GREE</a>) as the lead frontend developer; and at Google as a product specialist, internal tools developer, and operations guy in the Enterprise apps group.</p>
+						<p>I love learning new things (especially new technologies).  I also like biking, tea, data visualization, recording <a href="http://eggyrecords.blogspot.com/2009/09/these-are-three-latest-releases-from.html">music</a> with a tape player, southern style chicken sandwiches, optimizing systems, and <a href="https://picasaweb.google.com/lh/photo/2y7uedPEW5x1cX3gMCJ6dD5wkiSZmM0FbXhobdmcDzo?feat=directlink">bowling</a>.</p>
 					</div>
 				</div>
+			</div>
+			<div id="game-content" class="game-container">
+				<div id="game-play">
+					<div>Your score: <span id="game-score">0</span></div>
+					<div class="game-instructions">Hello, Here's a game.  Instructions: keep the red ball up in the air!</div>
+					<div id="game-countdown">Randomizer initiating in <span></span> seconds!!!</div>
+					<div id="game-winner">Congratulations!  You just got a new high score <span id="game-high-score"></span>.
+						Please enter your initials:
+						<div id="game-validation">Please provide initials!</div>
+						<input id="game-initials" type="text" maxlength="3" name="initials" />
+						<input id="game-submit" type="submit" value="Submit" />
+					</div>
+					<div id="game-scores" class="game-container">
+						<div class="game-inner">High scores:
+							<ul id="game-scores-list">
+								{% for score in high_scores %}
+								<li><span class="game-score">{{ score.score }}</span><span class="game-name">{{ score.initials }}</span></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="game-start" class="game-inner">Play game</div>
 			</div>
 			<div id="projects-content" class="content-container projects">
 				<div class="content-subcontainer">
@@ -37,24 +60,25 @@
 					<div class="content-body">
 						<p>Here are some things I've worked on:</p>
 						<ul>
+              <li><a href="http://soundquake.d-bow.com">soundQuake</a> | developer
+                <div><a href="http://www.gaffta.org/2012/03/04/soundquake/">Winning piece</a> from <a href="http://www.thecreatorsproject.com/arthackweekendsf">Art Hack SF</a> and featured at <a href="http://thecreatorsproject.com/events/the-creators-project-san-francisco-2012">the Creator's Project SF</a>. Turns data sets into meditative audio/visual experiences. [<a href="https://github.com/Bowman224/soundquake">source</a>]</div>
+                </li>
+              <li><a href="http://www.pbs.org/pov/hackathondemos/livinglossures/landing.html">Living Los Sures</a> | developer
+              <div>An interactive documentary piece created for the <a href="http://www.pbs.org/pov/blog/povdocs/2012/08/pov-hackathon-five-documentary-prototypes-from-a-weekend-of-hacking/4/#top">PBS POV Hackathon</a> in NYC. [<a href="https://github.com/qarren/lossures">source</a>].</div>
+              </li>
 							<li><a href="http://www.projectopensf.org">projectOPEN</a> | product manager and developer
 								<div>Enables organizations supporting the homeless in San Francisco to create and print custom maps of open resources in the city. [<a href="https://github.com/bowman224/Project-OPEN">source</a>].</div>
 							</li>
-							<li><a href="http://www.noizzze.com">Noizzze</a> | developer
+							<li><a href="http://www.kanyezone.com/">Kanye Zone</a> | server engineer
+								<div>A <a href="http://www.reddit.com/r/Music/comments/qpwqe/dont_let_kanye_into_his_zone/">viral game</a> written up by <a href="http://www.huffingtonpost.com/2012/03/12/kanye-zone-kanye-west-jay-z_n_1339203.html">huffpo</a>, <a href="http://read.mtvhive.com/2012/03/27/spitz-take-kanye-zone-interview/">mtv</a>, <a href="http://pitchfork.tumblr.com/post/19132634016/welcome-to-kanye-zone-the-simple-yet-effective">pitchfork</a>, <a href="http://kotaku.com/kanye-zone">kotaku</a>, and others.</div>
+              </li>
+              <li><a href="http://www.noizzze.com">Noizzze</a> | developer
 								<div>An HTML5 Audio sound collage application I came up with while watching <a href="http://www.sonami.net/works/performance/">this artist</a> perform in SF.  Work in progress [<a href="https://github.com/bowman224/noizzze">source</a>].</div>
-							</li>  
-							<li>StudentsConnect | product manager and developer
-								<div>A sort of "chat roulette for students" - students in different countries can practice language skills via video chat. In early development. [<a href="https://github.com/bowman224/StudentsConnect">source</a>]</div>
 							</li>
 							<li><a href="http://www.mchopa.com">Mchopa</a> | developer
 								<div>An ecommerce site for an artist in Tanzania.  Google.org <a href="http://blog.google.org/2010/07/open-source-altruism.html">blogged</a> about it!</div>
 							</li>
-							<li><a href="http://run.brutelabs.org">run @ red rock</a> | backend developer
-								<div>Allows users to create profiles, log fitness activity, and view aggregate stats.</div>
-							</li>
-							<li><a href="http://www.brutelabs.org/Haiti/">Haiti School Project</a> | developer
-								<div>A site to help raise funds to build a school in Haiti.</div>
-							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -63,10 +87,11 @@
 					<h2>RESUME</h2>
 					<div class="content-body">
 						<h4>Experience</h4>
-							<ul>
-								<li>Software Engineer | Funzio, Inc. | Jan 2012 - Present</li>
+            <ul>
+                <li>Software Engineer | Chartbeat | Sep 2012 - Present</li>
 								<li>Head of Technology | BRUTE LABS | 2009 - Present</li>
-								<li>Product Specialist | Google, Inc. | Sep 2008 - August 2011</li>
+                <li>Software Engineer | Funzio | Jan 2012 - June 2012</li>
+								<li>Product Specialist | Google | Sep 2008 - August 2011</li>
 							</ul>
 						<h4>Education</h4>
 							<ul>
@@ -74,9 +99,8 @@
 							</ul>
 						<h4>Skills</h4>
 							<ul>
-								<li>Programming: JavaScript, Python</li>
-								<li>Web Development: JQuery, HTML/CSS, Google App Engine, NodeJS, MongoDB, Google Analytics</li>
-								<li>Operations: Salesforce Administration and Development</li>
+								<li>Languages: JavaScript, Python, HTML, CSS</li>
+								<li>Frameworks/Technologies: Angular, Backbone, Google Closure Library, JQuery, Less, WebGL, Git, App Engine, Django, Node, MongoDB, Bootstrap</li>
 							</ul>
 						<br />
 						<p>For full details, visit my <a href="http://www.linkedin.com/in/dbowman123">linkedIn profile</a>.  For code samples, visit my <a href="http://github.com/bowman224/">github profile</a>.</p>
@@ -87,16 +111,18 @@
 				<div class="content-subcontainer">
 					<h2>CONTACT</h2>
 					<div class="content-body">
-						<p><a href="http://www.linkedin.com/in/dbowman123">linkedIn</a></p>
-						<p><a href="http://www.twitter.com/dbow1234">twitter</a></p>
-						<p><a href="https://plus.google.com/u/0/111986384054479005896/about">g+</a></p>
-						<p><a href="http://open.spotify.com/user/dbowman123"><img alt="Follow me on Spotify" src="https://d2c87l0yth4zbw.cloudfront.net/i/social-badge-en.png" title="Follow me on Spotify"></a></p>
+						<p>danny[at](this website url)</p>
+						<div><a href="http://www.linkedin.com/in/dbowman123"><img src="img/LinkedIn_Logo60px.png" alt="LinkedIn" /></a></div>
+						<div><a href="https://twitter.com/dbow1234"><img src="img/Twitter_logo.png" alt="Twitter" /></a></div>
+						<div><!-- Place this tag where you want the badge to render -->
+<a href="https://plus.google.com/111986384054479005896?prsrc=3" rel="author" style="text-decoration:none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="" style="border:0;width:32px;height:32px;"/></a></div>
+						<div><a href="http://open.spotify.com/user/dbowman123"><img alt="Follow me on Spotify" src="https://d2c87l0yth4zbw.cloudfront.net/i/social-badge-en.png" title="Follow me on Spotify"></a></div>
 					</div>
 				</div>
         	</div>
 		</div>
 		<div id="ball-pit">
-			<canvas data-processing-sources="animation/dbow.pde"></canvas>
+			<canvas id="ball-pit-canvas" data-processing-sources="animation/dbow.pde"></canvas>
 		</div>
 		<div id="credits">
 			Built with <a href="http://code.google.com/appengine/">App Engine</a>, <a href="http://jquery.com/">JQuery</a>, <a href="http://processing.org">Processing</a>, and <a href="http://processingjs.org/">Processing JS</a>.
@@ -106,9 +132,9 @@
 	<script type="text/javascript">
 		google.load("jquery", "1.7.1");
 		google.load("jqueryui", "1.8.16");
-	</script>	
-	<script type="text/javascript" src="js/dbow.js"></script>
-	<script src="js/processing-1.3.6.min.js"></script> 
+	</script>
+	<script type="text/javascript" src="js/dbow_minified.js"></script>
+	<script src="js/processing-1.3.6.min.js"></script>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -121,6 +147,12 @@
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 
-	</script>  
+	</script>
+	<script>
+		DBOW.Game.setGameId('{{ game_key }}');
+		if (DBOW && DBOW.Game && DBOW.Game.setLowestHighScore) {
+			DBOW.Game.setLowestHighScore({{ lowest_high_score }});
+		}
+	</script>
 </body>
 </html>

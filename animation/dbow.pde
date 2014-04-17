@@ -4,19 +4,37 @@
 // Adapted from Bouncy Balls example written by Casey Reas and Ben Fry:
 // http://processing.org/learning/topics/bouncybubbles.html
 
-int numBalls = 40;  // The # of balls in the ball pit
+int numBalls = 35;  // The # of balls in the ball pit
+int gameBalls = 15; // The # of balls when playing the game
 float spring = 0.4;
 float gravity = 0.23;
 float friction = 0.96;
 int bgColor = #1B1B1B;
-int[] ballColors = { #0AB3D1, #FFC600, #D53817, #8265A2, #339966 };
-int[] bludgerColors = { #A7D267, #9A9A9A, #FF6699 };
+int[] ballColors = { #0AB3D1, #FFC600, #8265A2, #339966 };
 int numColors = ballColors.length;
-int prevFillNum;
 Ball[] balls = new Ball[numBalls];
 boolean bludgerExists = false;
-Bludger bludger = new Bludger(mouseX, mouseY, 100, 255);
+Bludger bludger = new Bludger(mouseX, mouseY, 100, 250);
 PFont din;
+int jsId = int(random(10000, 50000));
+boolean javascriptSent = false;
+boolean playingGame = false;
+int counter = 0;
+int counterResetAlert = 60*24;
+int counterResetTime = 60*30;
+
+
+interface JavaScript {
+  void recordHit(int pId);
+  void resetGame(int pId);
+  void storeId(int pId);
+}
+
+void bindJavascript (JavaScript js) {
+  javascript = js;
+}
+
+JavaScript javascript;
 
 // Creates the canvas, sets parameters, and creates Ball objects
 void setup() {
@@ -26,7 +44,7 @@ void setup() {
   smooth();
   din = loadFont("DIN-Regular-32.vlw");
   textFont(din, 32);
-  for (int i = 0; i < numBalls; i++) {
+  for (int i = 0; i < numBalls - 1; i++) {
     balls[i] = new Ball(random(width),
                         random(height),
                         random(30, 40),
@@ -34,6 +52,12 @@ void setup() {
                         ballColors[int(random(numColors))],
                         balls);
   }
+  balls[numBalls - 1] = new targetBall(random(width),
+                                       random(height),
+                                       55,
+                                       numBalls + 1,
+                                       #D53817,
+                                       balls);
 
 }
 
@@ -49,22 +73,45 @@ void draw() {
     bludgerExists = true;
   }
 
-  for (int i = 0; i < numBalls; i++) {
-    balls[i].collide();
-    balls[i].move();
-    balls[i].display();  
+  if (playingGame) {
+    for (int i = 0; i < gameBalls; i++) {
+      balls[i].collide();
+      balls[i].move();
+      balls[i].display();  
+    }
+    balls[numBalls-1].collide();
+    balls[numBalls-1].move();
+    balls[numBalls-1].display();
+  } else {
+    for (int i = 0; i < numBalls-1; i++) {
+      balls[i].collide();
+      balls[i].move();
+      balls[i].display();  
+    }
+  }
+  
+  if (javascript != null && javascriptSent != true) {
+    javascript.storeId(jsId);
+    javascriptSent = true;
+  }
+  
+  counter += 1;
+  if (counter == counterResetAlert) {
+    if (javascript != null) {
+      javascript.startCountdown();
+    }
+  }
+  if (counter == counterResetTime) {
+    counter = 0;
+    for (int i = 0; i < numBalls - 1; i++) {
+      balls[i].teleport();
+    }
   }
   
 }
 
-// If user clicks, the Bludger's color is updated
-void mouseClicked() {
-  int fillNum = int(random(bludgerColors.length));
-  while(fillNum == prevFillNum) {  // Ensures the color always changes
-    fillNum = int(random(bludgerColors.length));
-  }
-  bludger.updateColor(bludgerColors[fillNum]);
-  prevFillNum = fillNum;
+void startGame() {
+  playingGame = true;
 }
 
 // A ball in the ball pit
@@ -167,6 +214,56 @@ class Ball {
     fill(fillHex);
     ellipse(x, y, diameter, diameter);
   }
+  
+  void teleport() {
+    x = random(width);
+    y = random(height);
+  }
+
+}
+
+
+class targetBall extends Ball {
+  
+  int lastVal;
+  int currHits = 0;
+  
+  targetBall(float xIn, float yIn, float dIn, int idIn, int hexIn, Ball[] oIn) {
+    super(xIn, yIn, dIn, idIn, hexIn, oIn);
+  }
+  
+  void collide() {
+    if (bludgerExists) {
+      float[] bludgerInfo = bludger.getInfo();
+      float[] col = detectCollision(bludgerInfo[0], bludgerInfo[1], bludgerInfo[2]);
+      if (col.length > 0 && col.length != lastVal) {
+          if (javascript != null) {
+            javascript.recordHit(jsId);
+          }
+          currHits++;
+      }
+      lastVal = col.length;
+    }
+    
+    for (int i = id + 1; i < numBalls; i++) {
+      float[] a = detectCollision(others[i].x, others[i].y, others[i].diameter);
+      if (a.length > 0) {
+        others[i].vx += a[0];
+        others[i].vy += a[1];
+      }
+    }
+  }
+  
+  void move() {
+    super.move();
+    if (y > 322 && currHits != 0) {
+        if (javascript != null) {
+          javascript.resetGame(jsId);
+        }
+        currHits = 0;
+    }
+  }
+
 }
 
 
@@ -208,7 +305,6 @@ class Bludger {
     } else {
       fill(255);
     }
-    text("Hello!", xBL-42, yBL+10, 3);
     noStroke();
   }
   
@@ -218,8 +314,4 @@ class Bludger {
     return info;
   }
   
-  // Changes the Bludger's color to the provided value.
-  void updateColor(int updateFillHex) {
-    fillHex = updateFillHex;
-  }
 }

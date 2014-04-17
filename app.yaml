@@ -1,7 +1,12 @@
 application: dbow-site
-version: 2
-runtime: python
+version: 5
+runtime: python27
 api_version: 1
+threadsafe: false
+
+libraries:
+- name: django
+  version: latest
 
 handlers:
 
@@ -20,6 +25,9 @@ handlers:
 
 - url: /fonts
   static_dir: fonts
+  
+- url: /img
+  static_dir: img
 
 - url: .*
   script: main.py
