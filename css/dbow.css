@@ -216,9 +216,18 @@ p {
     #resume-content ul {
       margin-bottom: 0.71em;
     }
-    
-    #contact-content img {
-      margin: 4px 0px;
+
+    .contact-social-badges {
+        height: 150px;
+        position: relative;
+    }
+    .contact-social-badges a {
+        display: inline-block;
+    }
+    .contact-social-badges img {
+        vertical-align: top;
+        height: 36px;
+        margin: 3px;
     }
   
   .displayed {
