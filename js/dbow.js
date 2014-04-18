@@ -232,6 +232,7 @@ DBOW.Setup = (function () {
         page = e.currentTarget.hash;
         DBOW.Util.showContent(page);
         _gaq.push(['_trackPageview', page]);
+        pSUPERFLY.virtualPage(page);
       });
       // Set up Blog click handler.
       $(document).on('click', 'a.blog-link', function(e) {
