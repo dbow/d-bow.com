@@ -1,63 +1,41 @@
-/* reset */
-html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}a,a:visited{color:inherit;text-decoration:none}
-
-/* clearfix */
-.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}.clearfix{display:inline-block;}html[xmlns] .clearfix{display:block;}* html .clearfix{height:1%;}div.clearfix{display:block;}
-
-/* main */
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1B1B1B;
-    font-family: "Arial", sans-serif;
-    color: #FFF;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #696969;
+  font-family: "Arial", sans-serif;
+  color: #FFF;
 }
 
-body {
-  font-size: 0.75em;
+a {
+  color: rgb(255, 0, 145);
 }
 
-p {
-    margin-bottom: 0.83em;
+h1 {
+  font-family: 'Unica One', 'Arial', sans-serif;
 }
 
-#page {
-  margin: 0 auto;
-  max-width: 66.67em;
+nav {
+  position: absolute;
+  right: 50px;
 }
 
-#left-nav {
-  float: left;
-  width: 30%;
-  height: auto;
+nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0 20px;
 }
 
-  h1 {
-    font-size: 2.5em;
-    margin-left: 0.333em;
-    margin-top: 1em;
-    font-family: 'DINRegular', 'Arial', sans-serif;
-  }
+.content {
+  font-family: 'Vollkorn', 'Arial', serif;
+}
 
-  #left-nav li {
-    font-size: 2.083em;
-    padding: 0.4em 0.2em 0.4em 0.6em;
-    margin-top: 0.4em;
-    width: 75%;
-    border-radius: 0.12em;
-  }
-  
-  #left-nav li.displayed-nav {
-    width: 100%;
-    color: #1B1B1B;
-  }
-  
-  #left-nav li:hover {
-    color: #1B1B1B;
-    cursor: pointer;
-  }
+footer {
+  position: absolute;
+  bottom: 0px;
+  left: 70px;
+}
 
 .about {
   background-color: #0AB3D1;
@@ -79,188 +57,3 @@ p {
   background-color: #339966;
 }
 
-#right-content {
-  float: right;
-  width: 70%;
-  min-height: 37em;
-  position: relative;
-}
-
-  #game-content {
-      float: right;
-      margin-top: 50px;
-      font-size: 2em;
-      font-family: 'DINRegular', 'Arial', sans-serif;
-      position: relative;
-      display: none;
-      z-index: 5;
-  }
-    #game-play {
-      display: none;
-    }
-    .game-container {
-      background-color: #999;
-      border-radius: 0.25em;
-      padding: 0.22em;
-    }
-    .game-inner {
-      background-color: #1B1B1B;
-      color: #FFF;
-      padding: 0.22em;
-    }
-    .game-instructions {
-      font-size: 0.5em;
-    }
-    #game-countdown {
-      margin-top: 0.2em;
-      font-size: 0.7em;
-      position: absolute;
-      top: 110%;
-      display: none;
-    }
-      #game-countdown span {
-        color: #D53817;
-      }
-    #game-start {
-    }
-    #game-start:hover {
-      background-color: #999;
-      color: #1B1B1B;
-      cursor: pointer;
-    }
-    #game-scores {
-      position: absolute;
-      left: -50%;
-      top: -50%;
-      font-size: 0.8em;
-    }
-      #game-scores li {
-        margin-left: 0.1em;
-      }
-      .game-score {
-        color: #0AB3D1;
-      }
-      .game-name {
-        color: #FFC600;
-        margin-left: 0.2em;
-      }
-    #game-winner {
-      position: absolute;
-      font-size: 0.8em;
-      background-color: #333;
-      border-radius: 0.25em;
-      padding: 0.3em;
-      top: 110%;
-      left: 0;
-      display: none;
-    }
-      #game-high-score {
-        color: #FFC600;
-      }
-      #game-validation {
-        display: none;
-        font-size: 0.7em;
-        color: #D53817;
-      }
-
-  .content-container {
-    float: left;
-    width: 100%;
-    margin-top: 0.83em;
-    border-radius: 0.25em;
-    display: none;
-  }
-  
-  div.contact {
-    margin-top: 6em;
-  }
-  
-  .content-subcontainer {
-    margin: 0.42em;
-    background-color: #1B1B1B;
-    padding: 1.25em 1.25em 1.25em 2.083em;
-  }
-
-  .content-subcontainer h2 {
-    font-size: 2.5em;
-    padding-bottom: 0.33em;
-    font-family: 'DINRegular', 'Arial', sans-serif;
-  }
-  
-  .content-body {
-    font-size: 1.167em;
-  }
-  
-  #projects-content .content-body {
-    font-size: 1.1em;
-  }
-  
-    .content-body a {
-      text-decoration: underline;
-    }
-
-    .content-body li {
-      list-style-type: disc;
-      margin-left: 1.43em;
-      margin-top: 0.71em;
-    }
-    .content-body li div {
-      margin-left: 2.86em;
-      margin-top: 0.36em;
-    }
-    
-    .content-body h4 {
-      font-size: 1.33em;
-    }
-    
-    #resume-content ul {
-      margin-bottom: 0.71em;
-    }
-
-    .contact-social-badges {
-        height: 150px;
-        position: relative;
-    }
-    .contact-social-badges a {
-        display: inline-block;
-    }
-    .contact-social-badges img {
-        vertical-align: top;
-        height: 36px;
-        margin: 3px;
-    }
-  
-  .displayed {
-    display: inline;
-  }
-
-#ball-pit {
-  clear: both;
-}
-
-#ball-pit :focus {
-  outline: none;
-}
-
-  #ball-pit-canvas {
-    -webkit-transform: translateZ(0);
-  }
-
-#credits {
-  position: fixed;
-  right: 1em;
-  bottom: 1em;
-  font-size: 0.7em;
-}
-
-@font-face {
-    font-family: 'DINRegular';
-    src: url('/fonts/din-reg-webfont.eot');
-    src: url('/fonts/din-reg-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/din-reg-webfont.woff') format('woff'),
-         url('/fonts/din-reg-webfont.ttf') format('truetype'),
-         url('/fonts/din-reg-webfont.svg#DINRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
