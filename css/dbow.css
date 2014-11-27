@@ -1,59 +1,153 @@
 html, body {
   margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #696969;
-  font-family: "Arial", sans-serif;
-  color: #FFF;
+  background-color: #FFF;
+  color: rgba(0, 0, 0, 0.60);
 }
 
+body {
+  font-family: 'livory', 'Arial', sans-serif;
+  font-size: 26px;
+  margin: 0 auto;
+  width: 600px;
+}
+
+/* rgb(255, 0, 145); */
 a {
-  color: rgb(255, 0, 145);
+  color: rgb(255, 0, 116);
+  text-decoration: none;
 }
 
 h1 {
-  font-family: 'Unica One', 'Arial', sans-serif;
+  font-weight: 400;
+  /* color: rgb(239, 239, 239); */
 }
 
 nav {
-  position: absolute;
-  right: 50px;
+  text-align: center;
+  margin: 40px auto;
+  font-size: 25px;
+}
+
+nav h2 {
+  display: inline;
+  font-size: 25px;
 }
 
 nav a {
   text-decoration: none;
-  color: white;
-  margin: 0 20px;
+  position: relative;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.60);
+  font-style: italic;
+}
+nav a:after {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.60);
+  left: 0px;
+  right: 100%;
+  transition: right 0.15s ease-out;
+  position: absolute;
+  content: ' ';
+  top: 0px;
+  bottom: 0px;
+}
+nav a:hover:after {
+  right: 0px;
 }
 
 .content {
-  font-family: 'Vollkorn', 'Arial', serif;
+}
+
+.info-email {
+  font-style: italic;
+}
+
+.work {
+  padding: 30px;
+  position: relative;
+  margin: 70px 0px;
+  min-height: 300px;
+  background-color: black;
+  overflow: hidden;
+}
+.work h4 {
+  margin: 0px;
+  font-size: 40px;
+  background: rgba(255, 0, 116, 0.75);
+  display: inline;
+  color: white;
+}
+.work h4 a {
+  color: white;
+  font-weight: normal;
+  border-bottom: none;
+  padding: 10px;
+}
+.work p {
+  background: white;
+  padding: 10px;
+}
+.work a {
+  color: rgba(0, 0, 0, 0.60);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.60);
+}
+.work video {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.work-text {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+.work.chartbeat {
+  background-color: #2F4859;
+  background-image: linear-gradient(#2F4859, #3F6178);
+}
+.bg {
+  width: 110%;
+  height: 110%;
+  z-index: 0;
+  position: absolute;
+  left: -5%;
+  top: -5%;
+  -webkit-filter: blur(5px);
+}
+
+.work.chartbeat .bg {
+  background: url(http://static2.chartbeat.com/chartcorps/images/bg-chartcorps-search-pattern.png) top center no-repeat;
+  background-size: cover;
+}
+.work.soundquake .bg {
+  background: url(/img/soundquake.png) top center no-repeat;
+  background-size: cover;
+}
+.work.povlossures .bg {
+  background: url(/img/povlossures.png) top center no-repeat;
+  background-size: cover;
+}
+.work.projectopen .bg {
+  background: url(/img/projectopen.png) top center no-repeat;
+  background-size: cover;
+}
+.work.kanyezone .bg {
+  background: url(/img/kanyezone.png) top center no-repeat;
+  background-size: cover;
 }
 
 footer {
-  position: absolute;
-  bottom: 0px;
-  left: 70px;
+  font-size: 15px;
+  margin: 40px 0px;
+  text-align: center;
 }
-
-.about {
-  background-color: #0AB3D1;
+footer img {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  height: 20px;
+  position: relative;
+  top: 4px;
 }
-
-.projects {
-  background-color: #FFC600;
-}
-
-.resume {
-  background-color: #D53817;
-}
-
-.contact {
-  background-color: #8265A2;
-}
-
-.blog {
-  background-color: #339966;
-}
-
