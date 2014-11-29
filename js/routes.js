@@ -18,17 +18,7 @@ function DbowRoutes($stateProvider, $urlRouterProvider) {
       templateUrl: '/js/views/writing.html'
     })
     .state('instapoetry', {
-      url: '/instapoetry',
-      templateUrl: '/js/views/instapoetry.html',
-      onEnter: function() {
-        if (window.instgrm &&
-            window.instgrm.Embeds &&
-            window.instgrm.Embeds.process) {
-          window.setTimeout(function() {
-            window.instgrm.Embeds.process();
-          }, 100);
-        }
-      }
+      url: '/instapoetry'
     });
 
     $urlRouterProvider.otherwise('/info');

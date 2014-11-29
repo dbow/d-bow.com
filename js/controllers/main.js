@@ -3,7 +3,7 @@
 /**
  * @ngInject
  */
-function MainCtrl($scope, $http, $sce) {
+function MainCtrl($scope, $http, $sce, $state) {
   $http
     .get('/posts')
     .success(function(data, status, headers, config) {
@@ -30,6 +30,10 @@ function MainCtrl($scope, $http, $sce) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
+
+  $scope.viewingInstapoetry = function() {
+    return $state.is('instapoetry');
+  };
 }
 
 angular
