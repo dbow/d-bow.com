@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: PyTumblr
+Version: 0.0.6
+Summary: A Python API v2 wrapper for Tumblr
+Home-page: https://github.com/tumblr/pytumblr
+Author: John Bunting
+Author-email: johnb@tumblr.com
+License: LICENSE
+Description: UNKNOWN
+Platform: UNKNOWN
