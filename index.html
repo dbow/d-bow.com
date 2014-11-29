@@ -17,13 +17,16 @@
     <nav>
         <h2>danny bowman</h2>'s
         <a href="#work" ui-sref="work" ui-sref-active="active">work</a>,
-        <a href="http://blog.d-bow.com">writing</a>, and
+        <a href="#writing" ui-sref="writing" ui-sref-active="active">writing</a>,
+        <a href="#instapoetry" ui-sref="instapoetry" ui-sref-active="active">insta-poetry</a>,
+        and
         <a href="#info" ui-sref="info" ui-sref-active="active">info</a>.
     </nav>
 
     <section class="content" ui-view></section>
 
     <footer>
+        <a href="https://github.com/dbow"><img src="img/GitHub-Mark-32px.png" alt="Github" /></a>
         <a href="https://twitter.com/dbow1234"><img src="img/Twitter_logo.png" alt="Twitter" /></a>
         <a href="https://plus.google.com/111986384054479005896?prsrc=3" rel="author" style="text-decoration:none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt=""/></a>
         <a href="http://www.linkedin.com/in/dbowman123"><img src="img/LinkedIn_Logo60px.png" alt="LinkedIn" /></a>
@@ -31,12 +34,15 @@
         Built with <a href="http://code.google.com/appengine/">App Engine</a> and <a href="https://angularjs.org/">AngularJS</a>.
     </footer>
 
+    <script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/routes.js"></script>
     <script type="text/javascript" src="js/controllers/main.js"></script>
+
+    <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
 
     <script src="//use.typekit.net/xmc1opo.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>

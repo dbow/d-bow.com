@@ -13,7 +13,6 @@ body {
   width: 600px;
 }
 
-/* rgb(255, 0, 145); */
 a {
   color: rgb(255, 0, 116);
   text-decoration: none;
@@ -21,7 +20,6 @@ a {
 
 h1 {
   font-weight: 400;
-  /* color: rgb(239, 239, 239); */
 }
 
 nav {
@@ -115,11 +113,12 @@ nav a:hover:after {
   position: absolute;
   left: -5%;
   top: -5%;
+  filter: blur(5px);
   -webkit-filter: blur(5px);
 }
 
 .work.chartbeat .bg {
-  background: url(http://static2.chartbeat.com/chartcorps/images/bg-chartcorps-search-pattern.png) top center no-repeat;
+  background: url(/img/chartbeat.png) top center no-repeat;
   background-size: cover;
 }
 .work.soundquake .bg {

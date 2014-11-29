@@ -5,6 +5,7 @@
   "dependencies": {
     "angular": "latest",
     "angular-ui-router": "latest",
-    "normalize-css": "latest"
+    "normalize-css": "latest",
+    "lodash": "latest"
   }
 }

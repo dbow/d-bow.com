@@ -13,13 +13,22 @@ function DbowRoutes($stateProvider, $urlRouterProvider) {
       url: '/work',
       templateUrl: '/js/views/work.html'
     })
-    .state('resume', {
-      url: '/resume',
-      templateUrl: '/js/views/resume.html'
+    .state('writing', {
+      url: '/writing',
+      templateUrl: '/js/views/writing.html'
     })
-    .state('contact', {
-      url: '/contact',
-      templateUrl: '/js/views/contact.html'
+    .state('instapoetry', {
+      url: '/instapoetry',
+      templateUrl: '/js/views/instapoetry.html',
+      onEnter: function() {
+        if (window.instgrm &&
+            window.instgrm.Embeds &&
+            window.instgrm.Embeds.process) {
+          window.setTimeout(function() {
+            window.instgrm.Embeds.process();
+          }, 100);
+        }
+      }
     });
 
     $urlRouterProvider.otherwise('/info');
