@@ -21,7 +21,7 @@ function DbowRoutes($stateProvider, $urlRouterProvider) {
       url: '/instapoetry'
     });
 
-    $urlRouterProvider.otherwise('/info');
+    $urlRouterProvider.otherwise('/work');
 }
 
 angular
