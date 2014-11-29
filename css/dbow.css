@@ -138,6 +138,44 @@ nav a:hover:after {
   background-size: cover;
 }
 
+.post-content {
+  overflow: hidden;
+  height: 600px;
+  position: relative;
+}
+
+.post-content:before {
+  content: ' ';
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(transparent, white);
+}
+
+.post {
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.post h2 {
+  margin-bottom: 0px;
+}
+
+.continue-link {
+  font-size: 14px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  font-style: italic;
+}
+
+.insta-poem {
+  margin: 50px 0px;
+}
+
 footer {
   font-size: 15px;
   margin: 40px 0px;

@@ -8,8 +8,11 @@ function MainCtrl($scope, $http, $sce, $state) {
     .get('/posts')
     .success(function(data, status, headers, config) {
       var posts = _.map(data.posts, function(post) {
-        return $sce.trustAsHtml(
-          '<h2>' + post.title + '</h2>' + post.body);
+        return {
+          'title': post.title,
+          'link': post['post_url'],
+          'body': $sce.trustAsHtml(post.body)
+        }
       });
       $scope.posts = posts;
     })
