@@ -31,7 +31,7 @@ class BlogUtils:
         """Retrieve posts with the given tag from the Tumblr API."""
         response = self.client.posts(
             'dbow1234.tumblr.com',
-            limit=5,
+            limit=10,
             filter='html',
             tag=tag
         )

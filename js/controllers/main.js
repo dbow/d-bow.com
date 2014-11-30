@@ -17,26 +17,27 @@ function MainCtrl($scope, $http, $sce, $state) {
       $scope.posts = posts;
     })
     .error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
+      // TODO(dbow): Handle error.
     });
 
   $http
     .get('/instapoems')
     .success(function(data, status, headers, config) {
       var poems = _.map(data.poems, function(poem) {
-        return $sce.trustAsHtml(angular.fromJson(poem).html);
+        poem = angular.fromJson(poem);
+        var getLink = /\/\/instagram.com\/p\/([A-Za-z0-9_\-]+)\//;
+        return {
+          'drop': poem.title[0],
+          'title': poem.title.slice(1),
+          'thumbnail': poem.thumbnail_url,
+          'link': getLink.exec(poem.html)[1]
+        };
       });
       $scope.poems = poems;
     })
     .error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
+      // TODO(dbow): Handle error.
     });
-
-  $scope.viewingInstapoetry = function() {
-    return $state.is('instapoetry');
-  };
 }
 
 angular

@@ -8,9 +8,11 @@ html, body {
 
 body {
   font-family: 'livory', 'Arial', sans-serif;
-  font-size: 26px;
+  font-size: 25px;
   margin: 0 auto;
   width: 600px;
+  line-height: 1.3em;
+  letter-spacing: -.005em;
 }
 
 a {
@@ -23,7 +25,6 @@ h1 {
 }
 
 nav {
-  text-align: center;
   margin: 40px auto;
   font-size: 25px;
 }
@@ -31,6 +32,7 @@ nav {
 nav h2 {
   display: inline;
   font-size: 25px;
+  letter-spacing: -.02em;
 }
 
 nav a {
@@ -40,18 +42,20 @@ nav a {
   color: rgba(0, 0, 0, 0.60);
   font-style: italic;
 }
-nav a:after {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.60);
-  left: 0px;
-  right: 100%;
-  transition: right 0.15s ease-out;
-  position: absolute;
-  content: ' ';
-  top: 0px;
-  bottom: 0px;
+nav a:hover {
+  color: rgb(255, 0, 116);
 }
-nav a:hover:after {
-  right: 0px;
+nav a.active:hover {
+  color: rgba(0, 0, 0, 0.60);
+}
+nav a.active {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.amp {
+  font-family: baskerville;
+  font-style: italic;
 }
 
 .content {
@@ -81,20 +85,16 @@ nav a:hover:after {
   font-weight: normal;
   border-bottom: none;
   padding: 10px;
+  letter-spacing: -0.01em;
 }
 .work p {
   background: white;
   padding: 10px;
 }
-.work a {
-  color: rgba(0, 0, 0, 0.60);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.60);
-}
 .work video {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 100%;
   height: 100%;
 }
 .work-text {
@@ -162,6 +162,8 @@ nav a:hover:after {
 
 .post h2 {
   margin-bottom: 0px;
+  line-height: 1.3em;
+  letter-spacing: -.018em;
 }
 
 .continue-link {
@@ -173,7 +175,42 @@ nav a:hover:after {
 }
 
 .insta-poem {
-  margin: 50px 0px;
+  margin: 70px 0px;
+}
+.insta-poem img {
+  width: 100%;
+}
+.insta-caption {
+  margin-top: 15px;
+}
+.insta-caption .drop-caps {
+  float: left;
+
+  font-family: 'buena-park';
+  font-size: 63px;
+  margin-top: 23px;
+  margin-right: 5px;
+
+  /* font-family: 'bodedo'; */
+  /* font-size: 75px; */
+  /* margin-top: 17px; */
+  /* margin-right: 5px; */
+
+  /* font-family: 'aw-conqueror-carved'; */
+  /* font-size: 75px; */
+  /* margin-top: 13px; */
+  /* margin-right: 10px; */
+
+  /* font-family: 'roycroft'; */
+  /* font-size: 76px; */
+  /* margin-top: 22px; */
+  /* margin-right: 4px; */
+
+  /* font-family: 'p22-franklin-caslon'; */
+  /* font-size: 75px; */
+  /* margin-top: 20px; */
+  /* margin-right: 5px; */
+
 }
 
 footer {

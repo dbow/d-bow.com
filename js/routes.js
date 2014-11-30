@@ -18,10 +18,11 @@ function DbowRoutes($stateProvider, $urlRouterProvider) {
       templateUrl: '/js/views/writing.html'
     })
     .state('instapoetry', {
-      url: '/instapoetry'
+      url: '/instapoetry',
+      templateUrl: '/js/views/instapoetry.html'
     });
 
-    $urlRouterProvider.otherwise('/work');
+    $urlRouterProvider.otherwise('/info');
 }
 
 angular

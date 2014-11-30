@@ -13,18 +13,16 @@
 
 <body ng-controller="MainCtrl as main">
 
-
     <nav>
-        <h2>danny bowman</h2>'s
+        <h2>Danny Bowman</h2>&#8217;s
         <a href="#work" ui-sref="work" ui-sref-active="active">work</a>,
         <a href="#writing" ui-sref="writing" ui-sref-active="active">writing</a>,
-        <a href="#instapoetry" ui-sref="instapoetry" ui-sref-active="active">insta-poetry</a>,
-        and
+        <a href="#instapoetry" ui-sref="instapoetry" ui-sref-active="active">insta-poems</a>,
+        <span class="amp">&amp;</span>
         <a href="#info" ui-sref="info" ui-sref-active="active">info</a>.
     </nav>
 
     <section class="content" ui-view></section>
-    <section ng-include="'js/views/instapoetry.html'" ng-show="viewingInstapoetry()"></section>
 
     <footer>
         <a href="https://github.com/dbow"><img src="img/GitHub-Mark-32px.png" alt="Github" /></a>
@@ -42,19 +40,9 @@
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/routes.js"></script>
     <script type="text/javascript" src="js/controllers/main.js"></script>
-    <script type="text/javascript" src="js/directives/loadScript-directive.js"></script>
 
     <script src="//use.typekit.net/xmc1opo.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-
-    <script>
-        /**
-        DBOW.Game.setGameId('{{ game_key }}');
-        if (DBOW && DBOW.Game && DBOW.Game.setLowestHighScore) {
-            DBOW.Game.setLowestHighScore({{ lowest_high_score }});
-        }
-        */
-    </script>
 
 
     <!-- Google Analytics -->
