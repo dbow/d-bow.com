@@ -26,13 +26,12 @@ h1 {
 
 nav {
   margin: 40px auto;
-  font-size: 25px;
 }
 
 nav h2 {
   display: inline;
-  font-size: 25px;
   letter-spacing: -.02em;
+  font-size: 1em;
 }
 
 nav a {
@@ -202,4 +201,40 @@ footer img {
   height: 20px;
   position: relative;
   top: 4px;
+}
+.footer-item {
+  display: inline-block;
+}
+
+
+/* Responsive / Mobile styles */
+
+@media (max-width: 615px) {
+  body {
+    width: 90%;
+    min-width: 300px;
+    font-size: 20px;
+  }
+
+  nav {
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+  }
+
+  .work h4 {
+    font-size: 30px;
+  }
+
+  .work-text {
+    padding: 0px;
+  }
+
+  .insta-caption .drop-caps {
+    font-size: 53px;
+    margin-top: 19px;
+  }
+
+  .footer-item {
+    display: block;
+  }
 }
