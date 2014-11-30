@@ -185,32 +185,10 @@ nav a.active {
 }
 .insta-caption .drop-caps {
   float: left;
-
   font-family: 'buena-park';
   font-size: 63px;
   margin-top: 23px;
   margin-right: 5px;
-
-  /* font-family: 'bodedo'; */
-  /* font-size: 75px; */
-  /* margin-top: 17px; */
-  /* margin-right: 5px; */
-
-  /* font-family: 'aw-conqueror-carved'; */
-  /* font-size: 75px; */
-  /* margin-top: 13px; */
-  /* margin-right: 10px; */
-
-  /* font-family: 'roycroft'; */
-  /* font-size: 76px; */
-  /* margin-top: 22px; */
-  /* margin-right: 4px; */
-
-  /* font-family: 'p22-franklin-caslon'; */
-  /* font-size: 75px; */
-  /* margin-top: 20px; */
-  /* margin-right: 5px; */
-
 }
 
 footer {
