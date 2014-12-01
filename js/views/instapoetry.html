@@ -1,5 +1,5 @@
 <div class="insta-poem" ng-repeat="poem in poems">
-    <a href="//instagram.com/p/{{ poem.link }}"><img ng-src="{{ poem.thumbnail }}" /></a>
+    <a href="{{ poem.link }}"><img ng-src="{{ poem.thumbnail }}" /></a>
     <div class="insta-caption"><span class="drop-caps">{{ poem.drop }}</span>{{ poem.title }}</div>
 </div>
 

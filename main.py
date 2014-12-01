@@ -19,16 +19,19 @@ from django.utils import simplejson
 
 
 class BlogUtils:
+    """Utility class for blog-related queries."""
+
     def __init__(self):
+        """Initialize Tumblr REST client."""
+
         self.client = pytumblr.TumblrRestClient(
             '6cq2WlfK8c8ADRbNz4bEoPoZwc0flU8i1sw2DYuaXgVjCXYTxe',
-            'MyngCVGLXafXCR1WamWfn2eMU80tKPAwgmtBZ4g1X40Wwzxxw6',
-            '0VbpaoilW4h2jBR9kgcq7gex7KwcABAhCcnjp1awJlm0wk5vQ9',
-            'blN984nvPGzDr6jNSRCzsz8Ry95Nzud0rfSkNFMRl99xLtDXOU'
+            'MyngCVGLXafXCR1WamWfn2eMU80tKPAwgmtBZ4g1X40Wwzxxw6'
         )
 
     def get_posts(self, tag):
         """Retrieve posts with the given tag from the Tumblr API."""
+
         response = self.client.posts(
             'dbow1234.tumblr.com',
             limit=10,
@@ -38,6 +41,7 @@ class BlogUtils:
         return response['posts'] or []
 
 
+# Initialize shared blog client.
 blog = BlogUtils()
 
 
@@ -45,41 +49,43 @@ class PostHandler(webapp.RequestHandler):
     """Blogpost-related request handling."""
 
     def get(self):
-        """Get """
+        """Get essays and instapoems from tumblr."""
 
-        data = memcache.get('posts')
-        if data is None:
-            data = blog.get_posts('essay')
-            memcache.add('posts', data, 60)
+        # Fetch essays.
+        posts = memcache.get('posts')
+        if posts is None:
+            posts = blog.get_posts('essay')
+            memcache.add('posts', posts, 3600)
 
-        self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write(simplejson.dumps({'posts': data}))
+        # Fetch instapoems.
+        instapoems = memcache.get('instapoems')
+        if instapoems is None:
+            instapoems = blog.get_posts('instapoem')
 
-
-class InstaPoemHandler(webapp.RequestHandler):
-    """Insta-poem-related request handling."""
-
-    def get(self):
-        """Get """
-
-        data = memcache.get('instapoems')
-        if data is None:
-            data = blog.get_posts('instapoem')
+            # Run posts through oembed API to get actual instagram details.
             poems = []
-            for poem in data:
+            for poem in instapoems:
                 if 'link_url' in poem:
                     instagram_url = poem['link_url']
                 else:
                     instagram_url = poem['permalink_url']
-                endpoint = 'http://api.instagram.com/oembed?url=' + urllib.quote(instagram_url) + '&beta=true&omitscript=true'
+                endpoint = ('http://api.instagram.com/oembed?url={url}'
+                            '&beta=true&omitscript=true'
+                            '').format(url=urllib.quote(instagram_url))
                 result = urlfetch.fetch(endpoint)
                 if result.status_code == 200:
-                    poems.append(result.content)
-            memcache.add('instapoems', poems, 60)
-            data = poems
+                    poems.append({
+                      'content': result.content,
+                      'url': instagram_url
+                    })
+            memcache.add('instapoems', poems, 3600)
+            instapoems = poems
 
         self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write(simplejson.dumps({'poems': data}))
+        self.response.out.write(simplejson.dumps({
+            'posts': posts,
+            'poems': instapoems
+        }))
 
 
 class MainHandler(webapp.RequestHandler):
@@ -95,8 +101,7 @@ class MainHandler(webapp.RequestHandler):
 def main():
     application = webapp.WSGIApplication([
                     ('/', MainHandler),
-                    ('/posts', PostHandler),
-                    ('/instapoems', InstaPoemHandler)],
+                    ('/posts', PostHandler)],
                     debug=True)
     util.run_wsgi_app(application)
 
