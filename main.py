@@ -86,13 +86,18 @@ class PostHandler(webapp.RequestHandler):
         }))
 
 
+# Flag for dev environment.
+DEV = False
+
+
 class MainHandler(webapp.RequestHandler):
     """Primary request handler serving site content."""
 
     def get(self):
+        template_file = 'index.html' if DEV else 'index_dist.html'
         template_values = {
         }
-        path = os.path.join(os.path.dirname(__file__), 'index.html')
+        path = os.path.join(os.path.dirname(__file__), template_file)
         self.response.out.write(template.render(path, template_values))
 
 

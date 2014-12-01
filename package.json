@@ -1,0 +1,27 @@
+{
+  "name": "d-bow",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-ng-html2js": "latest",
+    "gulp-minify-html": "latest",
+    "gulp-concat": "latest",
+    "gulp-uglify": "latest",
+    "uglify-save-license": "latest",
+    "gulp-size": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-jshint": "latest",
+    "jshint-stylish": "latest",
+    "gulp-inject": "latest",
+    "gulp-useref": "latest",
+    "gulp-rev": "latest",
+    "gulp-rev-replace": "latest",
+    "gulp-filter": "latest",
+    "gulp-ng-annotate": "latest",
+    "gulp-csso": "latest",
+    "gulp-rename": "latest",
+    "gulp-debug": "latest"
+  }
+}
