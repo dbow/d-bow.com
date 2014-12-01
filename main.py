@@ -25,8 +25,6 @@ class BlogUtils:
         """Initialize Tumblr REST client."""
 
         self.client = pytumblr.TumblrRestClient(
-            '6cq2WlfK8c8ADRbNz4bEoPoZwc0flU8i1sw2DYuaXgVjCXYTxe',
-            'MyngCVGLXafXCR1WamWfn2eMU80tKPAwgmtBZ4g1X40Wwzxxw6'
         )
 
     def get_posts(self, tag):
