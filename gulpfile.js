@@ -21,7 +21,7 @@ var rename = require('gulp-rename');
 var debug = require('gulp-debug');
 
 gulp.task('default', ['clean'], function () {
-    gulp.start('build');
+    gulp.start('post');
 });
 
 gulp.task('clean', function (cb) {
