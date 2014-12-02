@@ -63,7 +63,9 @@ nav a.active {
 .info-email {
   font-style: italic;
 }
-
+.content .work:first-of-type {
+  margin-top: 30px;
+}
 .work {
   padding: 30px;
   position: relative;
@@ -118,6 +120,10 @@ nav a.active {
   background: url(/img/chartbeat.png) top center no-repeat;
   background-size: cover;
 }
+.work.livinglossures .bg {
+  background: url(/img/livinglossures.png) top center no-repeat;
+  background-size: cover;
+}
 .work.soundquake .bg {
   background: url(/img/soundquake.png) top center no-repeat;
   background-size: cover;
@@ -148,7 +154,7 @@ nav a.active {
   position: absolute;
   left: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, transparent, white);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
 }
 
 .post {
