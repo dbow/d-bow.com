@@ -103,7 +103,6 @@ nav a.active {
 }
 .work.chartbeat {
   background-color: #2F4859;
-  background-image: linear-gradient(#2F4859, #3F6178);
 }
 .bg {
   width: 110%;
@@ -113,7 +112,6 @@ nav a.active {
   left: -5%;
   top: -5%;
   filter: blur(5px);
-  -webkit-filter: blur(5px);
 }
 
 .work.chartbeat .bg {
@@ -150,8 +148,7 @@ nav a.active {
   position: absolute;
   left: 0;
   bottom: 0;
-  background: -webkit-linear-gradient(transparent, white);
-  background: linear-gradient(transparent, white);
+  background: linear-gradient(to bottom, transparent, white);
 }
 
 .post {
@@ -203,6 +200,9 @@ footer svg {
 }
 footer svg * {
   fill: rgba(0, 0, 0, 0.6);
+}
+footer svg:hover * {
+  fill: rgb(255, 0, 116);
 }
 
 /* Responsive / Mobile styles */
