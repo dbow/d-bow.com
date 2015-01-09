@@ -103,8 +103,8 @@ class MainHandler(webapp.RequestHandler):
 
 def main():
     application = webapp.WSGIApplication([
-                    ('/', MainHandler),
-                    ('/posts', PostHandler)],
+                    ('/posts', PostHandler),
+                    ('/.*', MainHandler)],
                     debug=True)
     util.run_wsgi_app(application)
 

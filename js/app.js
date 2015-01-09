@@ -3,7 +3,8 @@
 /**
  * @ngInject
  */
-function DbowConfig() {
+function DbowConfig($locationProvider) {
+  $locationProvider.html5Mode(true);
 }
 
 /**
