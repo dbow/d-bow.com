@@ -37,7 +37,6 @@ gulp.task('clean', function (cb) {
 
 gulp.task('styles', function () {
   return gulp.src(['css/**/*.css', '!css/dist/*'])
-    .pipe(autoprefixer('last 1 version'))
     .pipe(gulp.dest('.tmp/css'))
     .pipe(size());
 });
@@ -84,6 +83,7 @@ gulp.task('build', ['styles', 'scripts', 'views'], function () {
     .pipe(uglify({preserveComments: uglifySaveLicense})) // Uglify but preserve license.
     .pipe(jsFilter.restore()) // Switch back to all assets.
     .pipe(cssFilter) // Pipe only CSS files.
+    .pipe(autoprefixer('last 1 version')) // Prefix anything necessary.
     .pipe(csso()) // Minify CSS.
     .pipe(cssFilter.restore()) // Switch back to all assets.
     .pipe(assets.restore()) // Switch back to index.html.
