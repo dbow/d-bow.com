@@ -8,6 +8,10 @@ libraries:
 - name: django
   version: latest
 
+skip_files:
+- ^node_modules/*
+- ^bower_components/*
+
 handlers:
 
 - url: /favicon\.ico
