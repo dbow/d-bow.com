@@ -1,13 +1,20 @@
 doctype html
 html(lang='en')
   head
-    title='FuturePlate'
+    title='Danny Bowman'
+
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
 
+    meta(name='author', content='Danny Bowman')
+    meta(name='description', content='The online home of Danny Bowman')
+    meta(name='google-site-verification', content='5cwhm8FTy_nylEyfRvGM-5WftSB-yNAtvZKIhnI-x_s')
+    meta(name='viewport', content='width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui')
 
-    meta(name='description', content='')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Typekit
+    script(src='//use.typekit.net/huw2ant.js')
+    script.
+      try{Typekit.load();}catch(e){}
 
     unless development
       link(rel='stylesheet', type='text/css', href=`${base}/static/main.css`)
@@ -17,6 +24,17 @@ html(lang='en')
 
   script.
     window.data = !{data};
+
+  // Google Analytics
+  script(type='text/javascript').
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25819780-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
   script(src=`${base}/static/vendor.js`, defer)
   script(src=`${base}/static/main.js`, defer)
