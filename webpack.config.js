@@ -174,17 +174,10 @@ const client = {
   },
 
   postcss: function () {
-    if (DEVELOPMENT) {
-      return {
-        [ CSS_MODULES_PACK ]: [cssImportPlugin],
-        [ CSS_PACK ]: [],
-      };
-    } else {
-      return {
-        [ CSS_MODULES_PACK ]: [cssImportPlugin, autoprefixer],
-        [ CSS_PACK ]: [autoprefixer],
-      };
-    }
+    return {
+      [ CSS_MODULES_PACK ]: [cssImportPlugin, autoprefixer],
+      [ CSS_PACK ]: [autoprefixer],
+    };
   },
 
   plugins: [
