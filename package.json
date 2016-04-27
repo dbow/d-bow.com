@@ -1,7 +1,7 @@
 {
-  "name": "futureplate",
-  "version": "0.2.0",
-  "description": "Boilerplate project for future-facing tech: universal react + flux + react-router + css modules + code splitting + hot module replacement",
+  "name": "d-bow.com",
+  "version": "0.0.1",
+  "description": "www.d-bow.com portfolio site!",
   "engine": "node 4.2.1",
   "scripts": {
     "clean": "rimraf build",
