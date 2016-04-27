@@ -7,6 +7,7 @@ import favicon from 'serve-favicon';
 import serialize from 'serialize-javascript';
 import {trigger} from 'redial';
 
+import api from './api';
 import routes from './routes';
 
 import IndexStore from './stores/index';
@@ -28,10 +29,7 @@ app.set('view engine', 'pug');
 app.use(favicon(__dirname + '/images/favicon.ico'));
 app.use('/images', express.static(__dirname + '/images'));
 
-// Mock API endpoints!
-// TODO(dbow): Remove when API exists!
-import mockApi from './mock-api';
-app.use('/api', mockApi);
+app.use('/api', api);
 
 process.env.API_URL = process.env.API_URL || `http://127.0.0.1:${PORT}/api/`;
 

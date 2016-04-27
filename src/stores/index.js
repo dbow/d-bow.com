@@ -2,9 +2,7 @@ import _ from 'lodash';
 import EventEmitter from 'events';
 import update from 'react-addons-update';
 
-import IdStore from './ids';
-import ThingStore from './things';
-import NumberStore from './number';
+import PostStore from './posts';
 
 import Cache from './cache';
 import Request from './request';
@@ -15,9 +13,7 @@ class IndexStore extends EventEmitter {
     super();
 
     this.stores = {
-      ids: new IdStore(),
-      things: new ThingStore(),
-      number: new NumberStore(),
+      posts: new PostStore(),
     };
 
     this.cache = new Cache();
