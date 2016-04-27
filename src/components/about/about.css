@@ -1,0 +1,8 @@
+@value pink-text, gray-background, padding-standard from 'common';
+
+.container {
+  composes: pink-text gray-background;
+  composes: padding-standard;
+
+  font-size: 30px;
+}

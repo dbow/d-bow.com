@@ -1,0 +1,5 @@
+@value blue-text from 'common';
+
+.container {
+  composes: blue-text;
+}

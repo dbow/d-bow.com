@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+  head
+    title='FuturePlate'
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+
+
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    unless development
+      link(rel='stylesheet', type='text/css', href='#{base}/static/main.css')
+
+  body
+    #app!= content
+
+  script.
+    window.data = !{data};
+
+  script(src='#{base}/static/vendor.js', defer)
+  script(src='#{base}/static/main.js', defer)
+

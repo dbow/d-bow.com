@@ -1,0 +1,5 @@
+@value orange-text from 'common';
+
+.link {
+  composes: orange-text;
+}

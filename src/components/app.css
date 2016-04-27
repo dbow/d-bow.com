@@ -1,0 +1,7 @@
+@value default-font, white, pink-background from 'common';
+
+.container {
+  composes: default-font pink-background;
+  color: white;
+  height: 100%;
+}
