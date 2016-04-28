@@ -23,7 +23,35 @@ const client = tumblr.createClient({
 
 const router = express.Router();
 
-router.get('/posts', (req, res) => {
+const cache = {
+  posts: {
+    time: 0,
+    data: [],
+  },
+  poems: {
+    time: 0,
+    data: [],
+  },
+};
+// Cache for an hour.
+const TTL = 60 * 60 * 1000;
+
+function cached(key) {
+  return (req, res, next) => {
+    const cacheData = cache[key];
+    if (!cacheData) {
+      return next();
+    }
+    const now = new Date().getTime();
+    if (now - cacheData.time < TTL) {
+      res.send(cacheData.data);
+    } else {
+      next();
+    }
+  };
+}
+
+router.get('/posts', cached('posts'), (req, res) => {
   const tag = 'essay';
   const limit = 10;
   const filter = 'html';
@@ -31,13 +59,17 @@ router.get('/posts', (req, res) => {
     if (err) {
       res.sendStatus(500);
     } else {
+      cache.posts = {
+        data: response.posts,
+        time: new Date().getTime(),
+      };
       res.send(response.posts);
     }
   });
 });
 
 
-router.get('/poems', (req, res) => {
+router.get('/poems', cached('poems'), (req, res) => {
   const tag = 'instapoem';
   const limit = 10;
   const filter = 'html';
@@ -72,6 +104,10 @@ router.get('/poems', (req, res) => {
       });
       Promise.all(poems)
         .then((results) => {
+          cache.poems = {
+            data: results,
+            time: new Date().getTime(),
+          };
           res.send(results);
         })
         .catch((error) => {
