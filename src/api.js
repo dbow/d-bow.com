@@ -28,7 +28,11 @@ router.get('/posts', (req, res) => {
   const limit = 10;
   const filter = 'html';
   client.posts('dbow1234', {tag, limit, filter}, (err, response) => {
-    res.send(response.posts);
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.send(response.posts);
+    }
   });
 });
 
@@ -38,33 +42,42 @@ router.get('/poems', (req, res) => {
   const limit = 10;
   const filter = 'html';
   client.posts('dbow1234', {tag, limit, filter}, (err, response) => {
-    const poems = response.posts.map((poem) => {
-      const url = poem['link_url'] || poem['permalink_url'];
-      const oembedUrl = 'http://api.instagram.com/oembed';
-      const query = {
-        url,
-        beta: true,
-        omitscript: true,
-      };
-      return new Promise((resolve, reject) => {
-        request
-          .get(oembedUrl)
-          .query(query)
-          .end((error, response) => {
-            if (error) {
-              reject(error, response && response.body);
-            } else {
-              resolve({
-                content: response.body,
-                url,
-              });
-            }
-          });
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      const poems = response.posts.map((poem) => {
+        const url = poem['link_url'] || poem['permalink_url'];
+        const oembedUrl = 'http://api.instagram.com/oembed';
+        const query = {
+          url,
+          beta: true,
+          omitscript: true,
+        };
+        return new Promise((resolve, reject) => {
+          request
+            .get(oembedUrl)
+            .query(query)
+            .end((error, response) => {
+              const content = response && response.body;
+              if (error || !content || _.isEmpty(content)) {
+                reject(error, content);
+              } else {
+                resolve({
+                  content,
+                  url,
+                });
+              }
+            });
+        });
       });
-    });
-    Promise.all(poems).then((results) => {
-      res.send(results);
-    });
+      Promise.all(poems)
+        .then((results) => {
+          res.send(results);
+        })
+        .catch((error) => {
+          res.sendStatus(500);
+        });
+    }
   });
 });
 

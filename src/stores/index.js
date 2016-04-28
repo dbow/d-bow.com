@@ -31,6 +31,7 @@ class IndexStore extends EventEmitter {
     });
 
     this.cache.initialize(data._cache);
+    this.request.initialize(data._request);
   }
 
   serialize() {
@@ -43,6 +44,7 @@ class IndexStore extends EventEmitter {
     }, {});
 
     data._cache = this.cache.serialize();
+    data._request = this.request.serialize();
 
     return data;
   }

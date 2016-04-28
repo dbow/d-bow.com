@@ -38,6 +38,20 @@ if (!HOT_MODULE_REPLACEMENT) {
   app.use('/static', express.static('build/client'));
 }
 
+function render(res, store, props) {
+  const content = renderToString((
+    <FluxRoot store={store}>
+      <RouterContext {...props} />
+    </FluxRoot>
+  ));
+  const data = serialize(store.serialize());
+  res.render('index', {
+    content,
+    data,
+    development: DEVELOPMENT,
+    base: HOT_MODULE_REPLACEMENT ? 'http://localhost:8080' : '',
+  });
+}
 
 app.get('/*', function(req, res) {
   const location = req.url;
@@ -53,22 +67,11 @@ app.get('/*', function(req, res) {
       const {components, params} = renderProps;
       trigger('fetch', components, {store, params})
         .then(() => {
-          const content = renderToString((
-            <FluxRoot store={store}>
-              <RouterContext {...renderProps} />
-            </FluxRoot>
-          ));
-          const data = serialize(store.serialize());
-          res.render('index', {
-            content,
-            data,
-            development: DEVELOPMENT,
-            base: HOT_MODULE_REPLACEMENT ? 'http://localhost:8080' : '',
-          });
+          render(res, store, renderProps);
         })
         .catch((error) => {
-          console.log(error);
-          res.status(404).send('Not found');
+          // This shouldn't happen if actions handle errors properly...
+          render(res, store, renderProps);
         });
     } else {
       console.log(location);

@@ -8,10 +8,18 @@ export function getPosts(store) {
     return Promise.resolve();
   }
 
-  const promise = api.get('posts').then((response) => {
-    store.stores.posts.setState(response);
-    store.cache.set(cacheKey);
-  });
+  store.request.start(cacheKey);
+
+  const promise = api.get('posts')
+    .then((response) => {
+      store.request.finish(cacheKey);
+      store.stores.posts.setState(response);
+      store.cache.set(cacheKey);
+    })
+    .catch((error) => {
+      store.request.error(cacheKey);
+      store.stores.posts.setState([]);
+    });
 
   return promise;
 }
@@ -24,10 +32,18 @@ export function getPoems(store) {
     return Promise.resolve();
   }
 
-  const promise = api.get('poems').then((response) => {
-    store.stores.poems.setState(response);
-    store.cache.set(cacheKey);
-  });
+  store.request.start(cacheKey);
+
+  const promise = api.get('poems')
+    .then((response) => {
+      store.request.finish(cacheKey);
+      store.stores.poems.setState(response);
+      store.cache.set(cacheKey);
+    })
+    .catch((error) => {
+      store.request.error(cacheKey);
+      store.stores.poems.setState([]);
+    });
 
   return promise;
 }

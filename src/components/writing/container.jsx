@@ -14,12 +14,14 @@ const dependencies = provideHooks({
 
 function WritingContainer(props) {
   const {store} = props;
-  const posts = store.stores.posts.getState();
-  if (posts) {
-    return <Writing posts={posts} />;
-  } else {
+  const key = 'posts';
+  const loading = store.request.inProgress(key);
+  if (loading) {
     return <Loading />;
   }
+  const posts = store.stores.posts.getState();
+  const error = store.request.hasError(key);
+  return <Writing posts={posts} error={error} />;
 }
 
 

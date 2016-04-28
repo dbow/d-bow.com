@@ -1,6 +1,11 @@
 export default class Request {
   constructor() {
     this.requests = {};
+    this.errors = {};
+  }
+
+  initialize(data) {
+    this.errors = data;
   }
 
   start(key) {
@@ -9,10 +14,24 @@ export default class Request {
 
   finish(key) {
     this.requests[key] = false;
+    this.errors[key] = false;
   }
 
   inProgress(key) {
     return this.requests[key];
+  }
+
+  error(key) {
+    this.requests[key] = false;
+    this.errors[key] = true;
+  }
+
+  hasError(key) {
+    return this.errors[key];
+  }
+
+  serialize() {
+    return this.errors;
   }
 }
 

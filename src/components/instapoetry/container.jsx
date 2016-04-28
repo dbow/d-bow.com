@@ -14,12 +14,14 @@ const dependencies = provideHooks({
 
 function InstapoetryContainer(props) {
   const {store} = props;
-  const poems = store.stores.poems.getState();
-  if (poems) {
-    return <Instapoetry poems={poems} />;
-  } else {
+  const key = 'poems';
+  const loading = store.request.inProgress(key);
+  if (loading) {
     return <Loading />;
   }
+  const poems = store.stores.poems.getState();
+  const error = store.request.hasError(key);
+  return <Instapoetry poems={poems} error={error} />;
 }
 
 

@@ -7,16 +7,21 @@ const createMarkup = post => (
   {__html: post.body}
 );
 
-export default ({posts}) => (
-  <div>
-    { posts.map((post) => (
-      <div key={post.id} className={css.post}>
-        <h2 className={css.h2}>{post.title}</h2>
-        <div className={css.content} dangerouslySetInnerHTML={createMarkup(post)}></div>
-        <a className={css.link} href={`${post.post_url}`}>continue reading</a>
-      </div>
-    )) }
-  </div>
-);
+export default ({posts, error}) => {
+  if (error) {
+    return <div>Oops! There was a problem getting the posts :(</div>;
+  }
+  return (
+    <div>
+      { posts.map((post) => (
+        <div key={post.id} className={css.post}>
+          <h2 className={css.h2}>{post.title}</h2>
+          <div className={css.content} dangerouslySetInnerHTML={createMarkup(post)}></div>
+          <a className={css.link} href={`${post.post_url}`}>continue reading</a>
+        </div>
+      )) }
+    </div>
+  );
+};
 
 
