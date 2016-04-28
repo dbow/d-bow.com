@@ -1,10 +1,20 @@
+import css from './instapoetry.css';
+
 import React from 'react';
 
 
-export default () => (
+export default ({poems}) => (
   <div>
-    Instapoems page!
+    { poems.map(({url, content: {media_id, thumbnail_url, title}}) => (
+      <div key={media_id} className={css.poem}>
+        <a href={`${url}`}>
+          <img className={css.img} src={`${thumbnail_url}`} />
+        </a>
+        <div className={css.caption}>
+          <span className={css.drop}>{title[0]}</span>{title.slice(1)}
+        </div>
+      </div>
+    )) }
   </div>
 );
-
 

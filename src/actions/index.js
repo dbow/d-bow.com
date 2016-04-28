@@ -17,3 +17,19 @@ export function getPosts(store) {
 }
 
 
+export function getPoems(store) {
+  const cacheKey = 'poems';
+  const cacheTtl = 10 * 1000;
+  if (!store.cache.expired(cacheKey, cacheTtl)) {
+    return Promise.resolve();
+  }
+
+  const promise = api.get('poems').then((response) => {
+    store.stores.poems.setState(response);
+    store.cache.set(cacheKey);
+  });
+
+  return promise;
+}
+
+

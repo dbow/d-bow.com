@@ -3,6 +3,7 @@ import EventEmitter from 'events';
 import update from 'react-addons-update';
 
 import PostStore from './posts';
+import PoemStore from './poems';
 
 import Cache from './cache';
 import Request from './request';
@@ -14,6 +15,7 @@ class IndexStore extends EventEmitter {
 
     this.stores = {
       posts: new PostStore(),
+      poems: new PoemStore(),
     };
 
     this.cache = new Cache();

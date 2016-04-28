@@ -1,0 +1,27 @@
+.poem {
+  margin: 70px 0px;
+}
+
+.img {
+  width: 100%;
+}
+
+.caption {
+  margin-top: 15px;
+}
+
+.drop {
+  float: left;
+  font-family: 'buena-park';
+  font-size: 63px;
+  margin-top: 23px;
+  margin-right: 5px;
+}
+
+@media (max-width: 615px) {
+  .drop {
+    font-size: 53px;
+    margin-top: 19px;
+  }
+}
+

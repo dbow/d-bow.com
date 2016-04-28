@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import express from 'express';
 import tumblr from 'tumblr.js';
-import request from 'request';
+import request from 'superagent';
+
 
 let env;
 try {
@@ -39,16 +40,30 @@ router.get('/poems', (req, res) => {
   client.posts('dbow1234', {tag, limit, filter}, (err, response) => {
     const poems = response.posts.map((poem) => {
       const url = poem['link_url'] || poem['permalink_url'];
-      const oembedUrl = `http://api.instagram.com/oembed?url=${url}&beta=true&omitscript=true`;
-      return request(oembedUrl, (error, response, body) => {
-        return {
-          content: response.content,
-          url: response['instagram_url'],
-        };
+      const oembedUrl = 'http://api.instagram.com/oembed';
+      const query = {
+        url,
+        beta: true,
+        omitscript: true,
+      };
+      return new Promise((resolve, reject) => {
+        request
+          .get(oembedUrl)
+          .query(query)
+          .end((error, response) => {
+            if (error) {
+              reject(error, response && response.body);
+            } else {
+              resolve({
+                content: response.body,
+                url,
+              });
+            }
+          });
       });
     });
-    Promise.all(poems).then((result) => {
-      res.send(result);
+    Promise.all(poems).then((results) => {
+      res.send(results);
     });
   });
 });
