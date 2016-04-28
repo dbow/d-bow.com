@@ -3,7 +3,7 @@ import * as api from 'src/utils/api';
 
 export function getPosts(store) {
   const cacheKey = 'posts';
-  const cacheTtl = 10 * 1000;
+  const cacheTtl = 60 * 60 * 1000; // Cache an hour on client.
   if (!store.cache.expired(cacheKey, cacheTtl)) {
     return Promise.resolve();
   }
@@ -27,7 +27,7 @@ export function getPosts(store) {
 
 export function getPoems(store) {
   const cacheKey = 'poems';
-  const cacheTtl = 10 * 1000;
+  const cacheTtl = 60 * 60 * 1000; // Cache an hour on the client.
   if (!store.cache.expired(cacheKey, cacheTtl)) {
     return Promise.resolve();
   }
