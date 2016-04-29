@@ -104,7 +104,7 @@ export default () => (
       </a>
     </div>
     <div>
-      Built with <a href="http://code.google.com/appengine/">App Engine</a> and <a href="https://angularjs.org/">AngularJS</a>. Source <a href="https://github.com/dbow/d-bow.com">here</a>.
+      Built with <a href="https://github.com/dbow/futureplate/">my new favorite stack</a>. Source <a href="https://github.com/dbow/d-bow.com">here</a>.
     </div>
   </footer>
 );
