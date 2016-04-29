@@ -3,9 +3,11 @@ import css from './writing.css';
 import React from 'react';
 
 
-const createMarkup = post => (
-  {__html: post.body}
-);
+const createMarkup = post => {
+  // Avoid mixed content warnings.
+  const body = post.body.replace(/http\:\/\//g, '//');
+  return {__html: body}
+};
 
 export default ({posts, error}) => {
   if (error) {
