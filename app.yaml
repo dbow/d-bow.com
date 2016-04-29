@@ -1,0 +1,8 @@
+runtime: nodejs
+vm: true
+service: web
+
+skip_files:
+  - ^(.*/)?.*/node_modules/.*$
+  - /build/.*$
+
