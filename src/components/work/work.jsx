@@ -15,8 +15,8 @@ export default () => (
     <div className={css.livinglossures}>
       <div className={css.bg}></div>
       <video autoPlay loop preload="none">
-        <source type="video/mp4" src="http://cf.lossur.es/home/HOME01.mp4"></source>
-        <source type="video/webm" src="http://cf.lossur.es/home/HOME01.webmhd.webm"></source>
+        <source type="video/mp4" src="/videos/HOME01.mp4"></source>
+        <source type="video/webm" src="/videos/HOME01.webmhd.webm"></source>
       </video>
       <div className={css.text}>
         <h4 className={css.h4}><a href="http://shot-by-shot.lossur.es/#/">Living Los Sures</a></h4>
