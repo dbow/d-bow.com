@@ -1,6 +1,4 @@
-.idea/*
-.tmp/*
-fonts/*
-mocks/*
-bower_components/*
-node_modules/*
+node_modules/
+build
+npm-debug.log
+env.json

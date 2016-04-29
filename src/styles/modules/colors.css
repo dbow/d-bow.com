@@ -1,0 +1,22 @@
+@value pink #FF7E7E;
+@value white #FFF;
+
+.pink-background {
+  background-color: pink;
+}
+
+.orange-text {
+  color: orange;
+}
+
+.blue-text {
+  color: aqua;
+}
+
+.pink-text {
+  color: pink;
+}
+
+.gray-background {
+  background-color: gray;
+}

@@ -1,0 +1,43 @@
+.nav {
+  margin: 40px auto;
+}
+
+.h2 {
+  display: inline;
+  letter-spacing: -.02em;
+  font-size: 1em;
+}
+
+.link {
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.60);
+  font-style: italic;
+}
+
+.link:hover {
+  color: rgb(255, 0, 116);
+}
+
+.active {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.active:hover {
+  color: rgba(0, 0, 0, 0.60);
+}
+
+.amp {
+  font-family: baskerville;
+  font-style: italic;
+}
+
+@media (max-width: 615px) {
+  .nav {
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+  }
+}
+

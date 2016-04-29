@@ -1,0 +1,20 @@
+.footer {
+  font-size: 15px;
+  margin: 40px 0px;
+  text-align: center;
+}
+
+.svg {
+  display: inline-block;
+  width: 25px;
+  margin: 0px 5px;
+}
+
+.svg * {
+  fill: rgba(0, 0, 0, 0.6);
+}
+
+.svg:hover * {
+  fill: rgb(255, 0, 116);
+}
+
