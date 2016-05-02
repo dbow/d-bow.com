@@ -10,6 +10,8 @@ export default () => (
     <img src='images/povlossures.png' alt='' />
     <img src='images/projectopen.png' alt='' />
     <img src='images/kanyezone.png' alt='' />
+    <img src='images/majic.jpg' alt='' />
+    <img src='images/ohiotapes.jpg' alt='' />
   </div>
 );
 

@@ -1,0 +1,46 @@
+.music {
+  margin: 3em 0;
+}
+
+.music:first-of-type {
+  margin-top: 0;
+}
+
+.img {
+  width: 100%;
+}
+
+.container {
+  position: relative;
+}
+
+.h4 {
+  margin: 0px;
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  right: 1em;
+  z-index: 2;
+  padding: 0.3em 0;
+}
+
+.h4 a {
+  color: white;
+  font-weight: normal;
+  border-bottom: none;
+  padding: 10px;
+  letter-spacing: -0.01em;
+  background: rgba(255, 0, 116, 0.75);
+  line-height: 2em;
+}
+
+.item {
+  margin: 1em 0;
+}
+
+.quote {
+  margin-left: 1em;
+  margin-top: 0.5em;
+}

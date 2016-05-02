@@ -29,6 +29,7 @@ app.set('view engine', 'pug');
 app.use(favicon(__dirname + '/images/favicon.ico'));
 app.use('/images', express.static(__dirname + '/images'));
 app.use('/videos', express.static(__dirname + '/videos'));
+app.use('/audio', express.static(__dirname + '/audio'));
 
 app.use('/api', api);
 
