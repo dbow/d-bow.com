@@ -11,6 +11,10 @@
   margin-top: 30px;
 }
 
+.tale {
+  composes: work;
+}
+
 .chartbeat {
   composes: work;
   background-color: #2F4859;
@@ -34,6 +38,11 @@
 
 .kanyezone {
   composes: work;
+}
+
+.tale .bg {
+  background: url(/images/tale.png) top center no-repeat;
+  background-size: cover;
 }
 
 .chartbeat .bg {
