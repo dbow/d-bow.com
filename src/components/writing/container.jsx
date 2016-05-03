@@ -1,5 +1,6 @@
 import React from 'react';
 import {provideHooks} from 'redial';
+import _ from 'lodash';
 
 import {getPosts} from 'src/actions/index';
 
@@ -19,7 +20,15 @@ function WritingContainer(props) {
   if (loading) {
     return <Loading />;
   }
-  const posts = store.stores.posts.getState();
+  const posts = _.chain(store.stores.posts.getState())
+      .flatten()
+      .sortBy((post) => post.date || post.published)
+      .reverse()
+      .filter((post) => {
+        // Remove "response" posts in Medium based on length...
+        return (post.content || post.body).length > 400;
+      })
+      .value();
   const error = store.request.hasError(key);
   return <Writing posts={posts} error={error} />;
 }

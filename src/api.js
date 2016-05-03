@@ -2,7 +2,7 @@ import _ from 'lodash';
 import express from 'express';
 import tumblr from 'tumblr.js';
 import request from 'superagent';
-
+import {rss} from 'feed-read';
 
 let env;
 try {
@@ -51,56 +51,89 @@ function cached(key) {
   };
 }
 
+function getTumblrPosts(tag = 'essay') {
+  return new Promise((resolve, reject) => {
+    const limit = 10;
+    const filter = 'html';
+    client.posts('dbow1234', {tag, limit, filter}, (err, response) => {
+      if (err) {
+        console.log(err);
+        console.log('TUMBLR ERR');
+        reject(err, response);
+      } else {
+        resolve(response.posts);
+      }
+    });
+  });
+}
+
+function getMediumPosts() {
+  return new Promise((resolve, reject) => {
+    request
+      .get('https://medium.com/feed/@dbow1234')
+      .end((error, response) => {
+        if (error) {
+          reject(error, response);
+        } else {
+          rss(response.text || '', (err, articles) => {
+            if (err) {
+              reject(err, response);
+            } else {
+              resolve(articles);
+            }
+          });
+        }
+      });
+  });
+}
+
+function getInstagramEmbed(url) {
+  const OEMBED_URL = 'http://api.instagram.com/oembed';
+  const query = {
+    url,
+    beta: true,
+    omitscript: true,
+  };
+  return new Promise((resolve, reject) => {
+    request
+      .get(OEMBED_URL)
+      .query(query)
+      .end((error, response) => {
+        const content = response && response.body;
+        if (error || !content || _.isEmpty(content)) {
+          reject(error, content);
+        } else {
+          resolve({
+            content,
+            url,
+          });
+        }
+      });
+  });
+}
+
+
 router.get('/posts', cached('posts'), (req, res) => {
-  const tag = 'essay';
-  const limit = 10;
-  const filter = 'html';
-  client.posts('dbow1234', {tag, limit, filter}, (err, response) => {
-    if (err) {
-      res.sendStatus(500);
-    } else {
-      cache.posts = {
-        data: response.posts,
-        time: new Date().getTime(),
-      };
-      res.send(response.posts);
-    }
+  Promise.all([
+    getTumblrPosts(),
+    getMediumPosts()
+  ]).then((results) => {
+    cache.posts = {
+      data: results,
+      time: new Date().getTime(),
+    };
+    res.send(results);
+  }).catch((error) => {
+    res.sendStatus(500);
   });
 });
 
-
 router.get('/poems', cached('poems'), (req, res) => {
-  const tag = 'instapoem';
-  const limit = 10;
-  const filter = 'html';
-  client.posts('dbow1234', {tag, limit, filter}, (err, response) => {
-    if (err) {
-      res.sendStatus(500);
-    } else {
-      const poems = response.posts.map((poem) => {
+  getTumblrPosts('instapoem')
+    .then((result) => {
+      const poems = result.map((poem) => {
         const url = poem['link_url'] || poem['permalink_url'];
-        const oembedUrl = 'http://api.instagram.com/oembed';
-        const query = {
-          url,
-          beta: true,
-          omitscript: true,
-        };
-        return new Promise((resolve, reject) => {
-          request
-            .get(oembedUrl)
-            .query(query)
-            .end((error, response) => {
-              const content = response && response.body;
-              if (error || !content || _.isEmpty(content)) {
-                reject(error, content);
-              } else {
-                resolve({
-                  content,
-                  url,
-                });
-              }
-            });
-        });
+        return getInstagramEmbed(url);
       });
       Promise.all(poems)
         .then((results) => {
@@ -113,8 +146,10 @@ router.get('/poems', cached('poems'), (req, res) => {
         .catch((error) => {
           res.sendStatus(500);
         });
-    }
-  });
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+    });
 });
 
 

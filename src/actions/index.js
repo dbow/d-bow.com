@@ -18,7 +18,7 @@ export function getPosts(store) {
     })
     .catch((error) => {
       store.request.error(cacheKey);
-      store.stores.posts.setState([]);
+      store.stores.posts.setState([[], []]);
     });
 
   return promise;

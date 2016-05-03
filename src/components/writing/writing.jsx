@@ -1,12 +1,13 @@
 import css from './writing.css';
 
 import React from 'react';
+import classnames from 'classnames';
 
 
 const createMarkup = post => {
   // Avoid mixed content warnings.
-  const body = post.body.replace(/http\:\/\//g, '//');
-  return {__html: body}
+  const html = post.replace(/http\:\/\//g, '//');
+  return {__html: html}
 };
 
 export default ({posts, error}) => {
@@ -16,10 +17,12 @@ export default ({posts, error}) => {
   return (
     <div>
       { posts.map((post) => (
-        <div key={post.id} className={css.post}>
+        <div key={post.id || post.link} className={css.post}>
           <h2 className={css.h2}>{post.title}</h2>
-          <div className={css.content} dangerouslySetInnerHTML={createMarkup(post)}></div>
-          <a className={css.link} href={`${post.post_url}`}>continue reading</a>
+          <div className={classnames({[css.content]: !!post.post_url})} dangerouslySetInnerHTML={createMarkup((post.content || post.body))}></div>
+          { post.post_url &&
+            <a className={css.link} href={`${post.post_url}`}>continue reading</a>
+          }
         </div>
       )) }
     </div>
