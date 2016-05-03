@@ -86,19 +86,6 @@ const CSS_LOADERS = {
 };
 
 
-/**
- * postcssImport is used to add the shared classes in src/styles/modules to
- * src/styles/common.css to avoid the following issue when using CSS Modules'
- * composition feature:
- *     https://github.com/css-modules/css-modules/issues/12
- * See also:
- *     https://github.com/postcss/postcss-loader#integration-with-postcss-import
- */
-const cssImportPlugin = postcssImport({
-  addDependencyTo: webpack,
-});
-
-
 
 /**
  * CLIENT CONFIGURATION.
@@ -173,9 +160,21 @@ const client = {
     ],
   },
 
-  postcss: function () {
+  postcss: function (webpack) {
+    // NOTE(dbow): postcssImport is used to add the shared classes in
+    // src/styles/modules to src/styles/common.css to avoid the following
+    // issue when using CSS Modules' composition feature:
+    //   https://github.com/css-modules/css-modules/issues/12
+    // See also:
+    //   https://github.com/postcss/postcss-loader#integration-with-postcss-import
     return {
-      [ CSS_MODULES_PACK ]: [cssImportPlugin, autoprefixer],
+      [ CSS_MODULES_PACK ]: [
+        // NOTE(dbow): It *must* be first in the array and use the local
+        // webpack function argument.
+        postcssImport({
+          addDependencyTo: webpack,
+        }),
+        autoprefixer],
       [ CSS_PACK ]: [autoprefixer],
     };
   },
@@ -291,9 +290,14 @@ const server = {
     ]
   },
 
-  postcss: function () {
+  postcss: function (webpack) {
     return {
-      [ CSS_MODULES_PACK ]: [cssImportPlugin],
+      [ CSS_MODULES_PACK ]: [
+        // NOTE(dbow): See NOTE in client config postcss method.
+        postcssImport({
+          addDependencyTo: webpack,
+        })
+      ],
     };
   },
 
