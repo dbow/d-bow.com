@@ -20,6 +20,10 @@
   padding-bottom: 50px;
 }
 
+.medium {
+  padding-bottom: 0px;
+}
+
 .h2 {
   margin-bottom: 0px;
   line-height: 1.3em;
