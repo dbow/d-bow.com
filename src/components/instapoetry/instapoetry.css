@@ -11,8 +11,8 @@
 }
 
 .drop {
+  composes: buena-park from 'common';
   float: left;
-  font-family: 'buena-park';
   font-size: 63px;
   margin-top: 23px;
   margin-right: 5px;

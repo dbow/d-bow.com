@@ -1,3 +1,27 @@
-.default-font {
-  font-family: "Goudy Bookletter 1911", sans-serif;
+.serif {
+  font-family: 'livory', 'Georgia', serif;
+}
+
+.buena-park {
+  font-family: 'buena-park';
+}
+
+.baskerville {
+  font-family: baskerville;
+}
+
+.normal {
+  font-style: normal;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-decoration {
+  text-decoration: none;
 }

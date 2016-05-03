@@ -1,3 +1,5 @@
+@value pink, gray from 'common';
+
 .footer {
   font-size: 15px;
   margin: 40px 0px;
@@ -11,10 +13,10 @@
 }
 
 .svg * {
-  fill: rgba(0, 0, 0, 0.6);
+  fill: gray;
 }
 
 .svg:hover * {
-  fill: rgb(255, 0, 116);
+  fill: pink;
 }
 

@@ -1,1 +1,11 @@
+@value pink, gray from 'common';
 
+a {
+  color: pink;
+  text-decoration: none;
+}
+
+.app {
+  composes: serif from 'common';
+  color: gray;
+}

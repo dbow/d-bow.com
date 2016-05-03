@@ -1,22 +1,15 @@
-@value pink #FF7E7E;
-@value white #FFF;
-
-.pink-background {
-  background-color: pink;
-}
-
-.orange-text {
-  color: orange;
-}
-
-.blue-text {
-  color: aqua;
-}
+@value pink rgb(255, 0, 116);
+@value gray rgba(0, 0, 0, 0.60);
+@value black #444;
 
 .pink-text {
   color: pink;
 }
 
-.gray-background {
-  background-color: gray;
+.gray-text {
+  color: gray;
+}
+
+.black-text {
+  color: black;
 }

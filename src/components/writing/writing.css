@@ -25,17 +25,17 @@
 }
 
 .h2 {
+  composes: black-text from 'common';
   margin-bottom: 0px;
   line-height: 1.3em;
   letter-spacing: -.018em;
-  color: #444;
 }
 
 .link {
+  composes: italic from 'common';
   font-size: 14px;
   position: absolute;
   bottom: 0px;
   right: 0px;
-  font-style: italic;
 }
 

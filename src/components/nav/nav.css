@@ -1,3 +1,5 @@
+@value pink, gray from 'common';
+
 .nav {
   margin: 40px auto;
 }
@@ -9,15 +11,13 @@
 }
 
 .link {
-  text-decoration: none;
+  composes: gray-text italic no-decoration from 'common';
   position: relative;
   overflow: hidden;
-  color: rgba(0, 0, 0, 0.60);
-  font-style: italic;
 }
 
 .link:hover {
-  color: rgb(255, 0, 116);
+  color: pink;
 }
 
 .active {
@@ -26,12 +26,11 @@
 }
 
 .active:hover {
-  color: rgba(0, 0, 0, 0.60);
+  color: gray;
 }
 
 .amp {
-  font-family: baskerville;
-  font-style: italic;
+  composes: baskerville italic from 'common';
 }
 
 @media (max-width: 615px) {

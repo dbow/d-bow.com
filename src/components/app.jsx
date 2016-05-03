@@ -10,7 +10,7 @@ import Prefetch from 'src/components/prefetch/prefetch.jsx';
 
 export default (props) => {
   return (
-    <div>
+    <div className={css.app}>
       <Nav />
       <div>
         {props.children}
