@@ -14,7 +14,7 @@
 }
 
 .post {
-  composes: relative from 'common';
+  composes: relative overflow-hidden from 'common';
   margin-bottom: 50px;
   padding-bottom: 50px;
 }
