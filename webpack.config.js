@@ -191,6 +191,9 @@ const client = {
 
 if (!DEVELOPMENT) {
   client.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
     new ExtractTextPlugin('[name].css', {
       // This ensures chunk CSS is only loaded on demand. This may create a FOUC.
       allChunks: false,
