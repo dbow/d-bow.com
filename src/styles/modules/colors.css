@@ -1,6 +1,7 @@
 @value pink rgb(255, 0, 116);
 @value gray rgba(0, 0, 0, 0.60);
 @value black #444;
+@value white #FFF;
 
 .pink-text {
   color: pink;
@@ -13,3 +14,12 @@
 .black-text {
   color: black;
 }
+
+.white-background {
+  background-color: white;
+}
+
+.black-background {
+  background-color: black;
+}
+

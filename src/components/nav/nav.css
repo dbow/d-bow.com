@@ -5,15 +5,13 @@
 }
 
 .h2 {
-  display: inline;
+  composes: inline from 'common';
   letter-spacing: -.02em;
   font-size: 1em;
 }
 
 .link {
-  composes: gray-text italic no-decoration from 'common';
-  position: relative;
-  overflow: hidden;
+  composes: gray-text italic overflow-hidden relative no-decoration from 'common';
 }
 
 .link:hover {
@@ -21,7 +19,7 @@
 }
 
 .active {
-  font-style: normal;
+  composes: normal from 'common';
   font-weight: 700;
 }
 

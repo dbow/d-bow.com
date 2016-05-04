@@ -1,3 +1,52 @@
-.padding-standard {
-  padding: 40px;
+.relative {
+  position: relative;
 }
+
+.absolute {
+  position: absolute;
+}
+
+.inline {
+  display: inline;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.media-item {
+  margin: 70px 0;
+  position: relative;
+  min-height: 300px;
+}
+
+.media-item:first-of-type {
+  margin-top: 30px;
+}
+
+.media-header {
+  margin: 0px;
+  font-size: 40px;
+  color: white;
+}
+
+.media-header a {
+  color: white;
+  font-weight: normal;
+  border-bottom: none;
+  padding: 10px;
+  letter-spacing: -0.01em;
+  background: rgba(255, 0, 116, 0.75);
+  line-height: 2em;
+}
+
+@media (max-width: 615px) {
+  .media-header {
+    font-size: 30px;
+  }
+}
+

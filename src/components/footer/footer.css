@@ -1,9 +1,9 @@
 @value pink, gray from 'common';
 
 .footer {
+  composes: text-center from 'common';
   font-size: 15px;
   margin: 40px 0px;
-  text-align: center;
 }
 
 .svg {

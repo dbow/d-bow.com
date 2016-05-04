@@ -1,42 +1,24 @@
-.music {
-  margin: 3em 0;
+.musicItem {
+  composes: media-item from 'common';
 }
 
-.music:first-of-type {
-  margin-top: 0;
+.imageContainer {
+  composes: relative from 'common';
 }
 
 .img {
-  width: 100%;
-}
-
-.container {
-  position: relative;
+  composes: full-width from 'common';
 }
 
 .h4 {
-  margin: 0px;
-  font-size: 40px;
-  color: white;
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  right: 1em;
+  composes: media-header absolute from 'common';
+  top: 50px;
+  left: 50px;
+  right: 50px;
   z-index: 2;
-  padding: 0.3em 0;
 }
 
-.h4 a {
-  color: white;
-  font-weight: normal;
-  border-bottom: none;
-  padding: 10px;
-  letter-spacing: -0.01em;
-  background: rgba(255, 0, 116, 0.75);
-  line-height: 2em;
-}
-
-.item {
+.section {
   margin: 1em 0;
 }
 
@@ -44,3 +26,4 @@
   margin-left: 1em;
   margin-top: 0.5em;
 }
+

@@ -1,7 +1,6 @@
 .content {
-  overflow: hidden;
+  composes: relative overflow-hidden from 'common';
   height: 600px;
-  position: relative;
 }
 
 .content:before {
@@ -15,8 +14,8 @@
 }
 
 .post {
+  composes: relative from 'common';
   margin-bottom: 50px;
-  position: relative;
   padding-bottom: 50px;
 }
 
@@ -32,9 +31,8 @@
 }
 
 .link {
-  composes: italic from 'common';
+  composes: italic absolute from 'common';
   font-size: 14px;
-  position: absolute;
   bottom: 0px;
   right: 0px;
 }

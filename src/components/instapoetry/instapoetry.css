@@ -1,9 +1,9 @@
 .poem {
-  margin: 70px 0px;
+  composes: media-item from 'common';
 }
 
 .img {
-  width: 100%;
+  composes: full-width from 'common';
 }
 
 .caption {
