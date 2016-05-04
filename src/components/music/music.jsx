@@ -8,11 +8,13 @@ export default () => (
     <div className={css.musicItem}>
       <div className={css.imageContainer}>
         <img className={css.img} src="/images/creeps.jpg" />
-        <h4 className={css.h4}>
-          <a href="https://carcreeps.bandcamp.com/">
-            Car Creeps - S/T (2013)
-          </a>
-        </h4>
+        <div className={css.textContainer}>
+          <h4 className={css.h4}>
+            <a href="https://carcreeps.bandcamp.com/">
+              Car Creeps - S/T (2013)
+            </a>
+          </h4>
+        </div>
       </div>
       <div className={css.section}>
         Car Creeps was born in the spring of 2010 and died shortly thereafter. They almost played a show once, but the venue shut down before the show could happen.
@@ -24,11 +26,13 @@ export default () => (
     <div className={css.musicItem}>
       <div className={css.imageContainer}>
         <img className={css.img} src="/images/majic.jpg" />
-        <h4 className={css.h4}>
-          <a href="http://lcmrrecords.com/themagiceyes.html">
-            The Majic Eyes - S/T (2009)
-          </a>
-        </h4>
+        <div className={css.textContainer}>
+          <h4 className={css.h4}>
+            <a href="http://lcmrrecords.com/themagiceyes.html">
+              The Majic Eyes - S/T (2009)
+            </a>
+          </h4>
+        </div>
       </div>
       <div className={css.section}>
         <audio controls preload="metadata">
@@ -48,11 +52,13 @@ export default () => (
     <div className={css.musicItem}>
       <div className={css.imageContainer}>
         <img className={css.img} src="/images/ohiotapes.jpg" />
-        <h4 className={css.h4}>
-          <a href="https://soundcloud.com/dbow1234/sets/yar-ohio-tapes">
-            Yar - The Ohio Tapes (2013)
-          </a>
-        </h4>
+        <div className={css.textContainer}>
+          <h4 className={css.h4}>
+            <a href="https://soundcloud.com/dbow1234/sets/yar-ohio-tapes">
+              Yar - The Ohio Tapes (2013)
+            </a>
+          </h4>
+        </div>
       </div>
       <div className={css.section}>
         <iframe width="100%" height="166" scrolling="no" frameBorder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/79998233&amp;color=ff0074&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>

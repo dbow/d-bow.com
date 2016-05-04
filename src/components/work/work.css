@@ -55,7 +55,6 @@
 
 .h4 {
   composes: media-header inline from 'common';
-  padding: 0.3em 0;
 }
 
 .text {

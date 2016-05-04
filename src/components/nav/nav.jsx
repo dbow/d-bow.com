@@ -14,7 +14,6 @@ export default () => (
     <Link className={css.link} to="/music" activeClassName={css.active}>music</Link>
     ,&nbsp;
     <Link className={css.link} to="/instapoetry" activeClassName={css.active}>insta-poems</Link>
-    ,&nbsp;
     <span className={css.amp}> &amp; </span>
     <Link className={css.link} to="/info" activeClassName={css.active}>info</Link>.
   </nav>

@@ -32,6 +32,8 @@
   margin: 0px;
   font-size: 40px;
   color: white;
+  background: rgba(255, 0, 116, 0.75);
+  line-height: 1em;
 }
 
 .media-header a {
@@ -40,8 +42,6 @@
   border-bottom: none;
   padding: 10px;
   letter-spacing: -0.01em;
-  background: rgba(255, 0, 116, 0.75);
-  line-height: 2em;
 }
 
 @media (max-width: 615px) {

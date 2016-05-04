@@ -18,8 +18,13 @@
   color: pink;
 }
 
+/*
+ * NOTE(dbow): Composed .normal classname does not override .link font-style
+ * sufficiently so I set it directly here. Composition is a _little_
+ * unpredictable sometimes...
+ */
 .active {
-  composes: normal from 'common';
+  font-style: normal;
   font-weight: 700;
 }
 

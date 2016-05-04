@@ -10,12 +10,16 @@
   composes: full-width from 'common';
 }
 
-.h4 {
-  composes: media-header absolute from 'common';
-  top: 50px;
-  left: 50px;
-  right: 50px;
+.textContainer {
+  composes: absolute from 'common';
+  top: 0;
+  left: 0;
+  padding: 50px;
   z-index: 2;
+}
+
+.h4 {
+  composes: media-header inline relative from 'common';
 }
 
 .section {
@@ -25,5 +29,11 @@
 .quote {
   margin-left: 1em;
   margin-top: 0.5em;
+}
+
+@media (max-width: 615px) {
+  .textContainer {
+    padding: 30px;
+  }
 }
 
