@@ -5,7 +5,6 @@ import React from 'react';
 
 import Nav from 'src/components/nav/nav.jsx';
 import Footer from 'src/components/footer/footer.jsx';
-import Prefetch from 'src/components/prefetch/prefetch.jsx';
 
 
 export default (props) => {
@@ -16,7 +15,6 @@ export default (props) => {
         {props.children}
       </div>
       <Footer />
-      <Prefetch />
     </div>
   );
 }
