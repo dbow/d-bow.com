@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "www.d-bow.com portfolio site!",
   "engines": {
-    "node": "4.2.1"
+    "node": "6.1.0"
   },
   "repository": {
     "type": "git",
