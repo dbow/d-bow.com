@@ -14,9 +14,9 @@ let clientConfig = config[0];
 clientConfig.entry.main.unshift(`webpack-dev-server/client?${HMR_URL}`,
                                 'webpack/hot/dev-server');
 clientConfig.plugins = clientConfig.plugins.concat([
-  new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
+  new webpack.NamedModulesPlugin(),
+  new webpack.NoEmitOnErrorsPlugin()
 ]);
 clientConfig.output.publicPath = HMR_URL + clientConfig.output.publicPath;
 
@@ -24,6 +24,7 @@ var compiler = webpack(clientConfig);
 var server = new WebpackDevServer(compiler, {
   hot: true,
   publicPath: clientConfig.output.publicPath,
+  headers: { 'Access-Control-Allow-Origin': '*' },
 });
 server.listen(8080);
 

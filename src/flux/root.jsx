@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /**
@@ -40,6 +41,6 @@ export default class FluxRoot extends React.Component {
 }
 
 FluxRoot.childContextTypes = {
-  store: React.PropTypes.object,
+  store: PropTypes.object,
 };
 

@@ -1,7 +1,6 @@
 import css from './writing.css';
 
 import React from 'react';
-import classnames from 'classnames';
 
 
 const createMarkup = post => {
@@ -17,9 +16,9 @@ export default ({posts, error}) => {
   return (
     <div>
       { posts.map((post) => (
-        <div key={post.id || post.link} className={classnames(css.post, {[css.medium]: !post.post_url})}>
+        <div key={post.id || post.link} className={css.post + (!post.post_url ? css.medium : '')}>
           <h2 className={css.h2}>{post.title}</h2>
-          <div className={classnames({[css.content]: !!post.post_url})} dangerouslySetInnerHTML={createMarkup((post.content || post.body))}></div>
+          <div className={post.post_url ? css.content : ''} dangerouslySetInnerHTML={createMarkup((post.content || post.body))}></div>
           { post.post_url &&
             <a className={css.link} href={`${post.post_url}`}>continue reading</a>
           }

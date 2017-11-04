@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 export default function (Component) {
@@ -14,8 +15,8 @@ export default function (Component) {
     return <Component {...props} {...fluxProps} />;
   }
   FluxComponent.contextTypes = {
-    store: React.PropTypes.object,
-    router: React.PropTypes.object,
+    store: PropTypes.object,
+    router: PropTypes.object,
   };
   return FluxComponent;
 };

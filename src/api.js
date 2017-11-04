@@ -55,7 +55,7 @@ function getTumblrPosts(tag = 'essay') {
   return new Promise((resolve, reject) => {
     const limit = 10;
     const filter = 'html';
-    client.posts('dbow1234', {tag, limit, filter}, (err, response) => {
+    client.blogPosts('dbow1234', {tag, limit, filter}, (err, response) => {
       if (err) {
         console.log(err);
         console.log('TUMBLR ERR');

@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, unmountComponentAtNode} from 'react-dom';
+import {hydrate, unmountComponentAtNode} from 'react-dom';
 import {Router, browserHistory, match} from 'react-router';
 import {trigger} from 'redial';
 
@@ -29,7 +29,7 @@ browserHistory.listen(location => {
 
 
 function init() {
-  render((
+  hydrate((
     <FluxRoot store={store}>
       <Router routes={routes} history={browserHistory} />
     </FluxRoot>
