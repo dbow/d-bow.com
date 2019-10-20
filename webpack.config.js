@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 
@@ -47,8 +47,9 @@ const CSS_MODULES_CLASS_PATTERN = '[name]__[local]___[hash:base64:5]';
 // Options for css-loader to set up CSS Modules with a specific class pattern
 // and add postcss-loader:
 const CSS_MODULES_OPTIONS = {
-  modules: true,
-  localIdentName: CSS_MODULES_CLASS_PATTERN,
+  modules: {
+    localIdentName: CSS_MODULES_CLASS_PATTERN,
+  },
   importLoaders: 1,
 };
 
@@ -69,8 +70,11 @@ const CSS_MODULES_POSTCSS = {
 const CSS_MODULES_LOADERS = {
   CLASSNAMES_ONLY: [
     {
-      loader: 'css-loader/locals',
-      options: CSS_MODULES_OPTIONS,
+      loader: 'css-loader',
+      options: {
+        ...CSS_MODULES_OPTIONS,
+        onlyLocals: true,
+      },
     },
     CSS_MODULES_POSTCSS,
   ],
@@ -82,16 +86,16 @@ const CSS_MODULES_LOADERS = {
     },
     CSS_MODULES_POSTCSS,
   ],
-  FILE: ExtractTextPlugin.extract({
-    fallback: 'style-loader',
-    use: [
-      {
-        loader: 'css-loader',
-        options: CSS_MODULES_OPTIONS,
-      },
-      CSS_MODULES_POSTCSS,
-    ],
-  }),
+  FILE: [
+    {
+      loader: MiniCssExtractPlugin.loader
+    },
+    {
+      loader: 'css-loader',
+      options: CSS_MODULES_OPTIONS,
+    },
+    CSS_MODULES_POSTCSS,
+  ],
 };
 
 
@@ -107,27 +111,27 @@ const CSS_LOADERS = {
     'style-loader',
     'css-loader',
   ],
-  FILE: ExtractTextPlugin.extract({
-    fallback: 'style-loader',
-    use: [
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 1,
-        },
+  FILE: [
+    {
+      loader: MiniCssExtractPlugin.loader
+    },
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: 1,
       },
-      {
-        loader: 'postcss-loader',
-        options: {
-          config: {
-            ctx: {
-              autoprefixer: true,
-            },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        config: {
+          ctx: {
+            autoprefixer: true,
           },
         },
-      }
-    ],
-  }),
+      },
+    }
+  ],
 };
 
 
@@ -138,6 +142,8 @@ const CSS_LOADERS = {
  * Generates the client bundles served to the browser.
  */
 const client = {
+
+  mode: DEVELOPMENT ? 'development' : 'production',
 
   devtool: DEVELOPMENT ? 'cheap-module-source-map' : 'source-map',
 
@@ -171,7 +177,7 @@ const client = {
       'node_modules',
     ],
     alias: {
-      common: 'src/styles/common.css',
+      common: path.resolve(__dirname, 'src/styles/common.css'),
     },
   },
 
@@ -208,41 +214,14 @@ const client = {
     ],
   },
 
-  plugins: [
-    // NOTE(dbow): If vendor chunk changes, may need the plugin mentioned here:
-    //     https://webpack.github.io/docs/list-of-plugins.html#2-explicit-vendor-chunk
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
-  ],
+  plugins: [],
 };
 
 if (!DEVELOPMENT) {
   client.plugins.push(
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].css',
-      // This ensures chunk CSS is only loaded on demand. This may create a FOUC.
-      allChunks: false,
     }),
-    // Aggressively compress main chunk.
-    new webpack.optimize.UglifyJsPlugin({
-      include: /main/,
-      sourceMap: true,
-      compress: {
-        warnings: true,
-      },
-    }),
-    // Only remove comments of vendor chunks.
-    new webpack.optimize.UglifyJsPlugin({
-      exclude: /main/,
-      output: {
-        comments: false
-      },
-    })
   );
 }
 
@@ -254,6 +233,8 @@ if (!DEVELOPMENT) {
  * rendering.
  */
 const server = {
+
+  mode: DEVELOPMENT ? 'development' : 'production',
 
   devtool: DEVELOPMENT ? 'cheap-module-source-map' : 'source-map',
 
@@ -277,7 +258,7 @@ const server = {
       'node_modules',
     ],
     alias: {
-      common: 'src/styles/common.css',
+      common: path.resolve(__dirname, 'src/styles/common.css'),
     },
   },
 
@@ -295,7 +276,7 @@ const server = {
   },
 
   module: {
-    loaders: [
+    rules: [
 
       JS_LOADER,
 

@@ -8,9 +8,7 @@ module.exports = ({ file, options, env }) => ({
     //   https://github.com/postcss/postcss-loader#integration-with-postcss-import
     // It *must* be first in the array.
     'postcss-import': options.import ? true : false,
-    'autoprefixer': options.autoprefixer ? {
-      browsers: ['last 2 versions'],
-    } : false,
+    'autoprefixer': options.autoprefixer ? true : false,
   }
 });
 

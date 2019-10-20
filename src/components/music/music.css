@@ -1,17 +1,17 @@
 .musicItem {
-  composes: media-item from 'common';
+  composes: media-item from '~common';
 }
 
 .imageContainer {
-  composes: relative from 'common';
+  composes: relative from '~common';
 }
 
 .img {
-  composes: full-width from 'common';
+  composes: full-width from '~common';
 }
 
 .textContainer {
-  composes: absolute from 'common';
+  composes: absolute from '~common';
   top: 0;
   left: 0;
   padding: 50px;
@@ -19,7 +19,7 @@
 }
 
 .h4 {
-  composes: media-header inline relative from 'common';
+  composes: media-header inline relative from '~common';
 }
 
 .section {

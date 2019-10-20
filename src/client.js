@@ -15,15 +15,12 @@ let routes = routeConfig;
 const root = document.getElementById('app');
 
 store.initialize(window.data);
+delete window.data;
 
 browserHistory.listen(location => {
   match({routes, location}, (error, redirectLocation, props = {}) => {
     const {components, params} = props;
-    if (window.data) {
-      delete window.data;
-    } else {
-      trigger('fetch', components, {store, params});
-    }
+    trigger('fetch', components, {store, params});
   });
 });
 

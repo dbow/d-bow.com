@@ -1,9 +1,9 @@
 .poem {
-  composes: media-item from 'common';
+  composes: media-item from '~common';
 }
 
 .img {
-  composes: full-width from 'common';
+  composes: full-width from '~common';
 }
 
 .caption {
@@ -11,7 +11,7 @@
 }
 
 .drop {
-  composes: buena-park from 'common';
+  composes: buena-park from '~common';
   float: left;
   font-size: 63px;
   margin-top: 23px;

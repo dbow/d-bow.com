@@ -1,4 +1,4 @@
-@value pink, gray from 'common';
+@value pink, gray from '~common';
 
 a {
   color: pink;
@@ -6,6 +6,6 @@ a {
 }
 
 .app {
-  composes: serif from 'common';
+  composes: serif from '~common';
   color: gray;
 }

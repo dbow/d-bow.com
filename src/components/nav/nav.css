@@ -1,17 +1,17 @@
-@value pink, gray from 'common';
+@value pink, gray from '~common';
 
 .nav {
   margin: 40px auto;
 }
 
 .h2 {
-  composes: inline from 'common';
+  composes: inline from '~common';
   letter-spacing: -.02em;
   font-size: 1em;
 }
 
 .link {
-  composes: gray-text italic overflow-hidden relative no-decoration from 'common';
+  composes: gray-text italic overflow-hidden relative no-decoration from '~common';
 }
 
 .link:hover {
@@ -33,7 +33,7 @@
 }
 
 .amp {
-  composes: baskerville italic from 'common';
+  composes: baskerville italic from '~common';
 }
 
 @media (max-width: 615px) {
