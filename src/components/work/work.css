@@ -1,10 +1,10 @@
 .work {
-  composes: media-item overflow-hidden black-background from 'common';
+  composes: media-item overflow-hidden black-background from '~common';
   padding: 30px;
 }
 
 .bg {
-  composes: absolute from 'common';
+  composes: absolute from '~common';
   width: 110%;
   height: 110%;
   z-index: 0;
@@ -47,24 +47,24 @@
 }
 
 .video {
-  composes: absolute from 'common';
+  composes: absolute from '~common';
   left: 0px;
   top: 0px;
   height: 100%;
 }
 
 .h4 {
-  composes: media-header inline from 'common';
+  composes: media-header inline from '~common';
 }
 
 .text {
-  composes: relative from 'common';
+  composes: relative from '~common';
   padding: 20px;
   z-index: 2;
 }
 
 .p {
-  composes: white-background from 'common';
+  composes: white-background from '~common';
   padding: 10px;
 }
 

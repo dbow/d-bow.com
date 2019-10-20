@@ -1,5 +1,5 @@
 .content {
-  composes: relative overflow-hidden from 'common';
+  composes: relative overflow-hidden from '~common';
   height: 600px;
 }
 
@@ -14,9 +14,16 @@
 }
 
 .post {
-  composes: relative overflow-hidden from 'common';
+  composes: relative overflow-hidden from '~common';
   margin-bottom: 50px;
   padding-bottom: 50px;
+}
+
+.post img {
+  width: 100%;
+}
+.post pre {
+  white-space: pre-wrap;
 }
 
 .medium {
@@ -24,7 +31,7 @@
 }
 
 .h2 {
-  composes: black-text from 'common';
+  composes: black-text from '~common';
   margin-bottom: 0px;
   line-height: 1.3em;
   letter-spacing: -.018em;
@@ -35,7 +42,7 @@
 }
 
 .link {
-  composes: italic absolute from 'common';
+  composes: italic absolute from '~common';
   font-size: 14px;
   bottom: 0px;
   right: 0px;

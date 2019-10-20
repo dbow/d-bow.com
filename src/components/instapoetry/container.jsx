@@ -19,7 +19,7 @@ function InstapoetryContainer(props) {
   if (loading) {
     return <Loading />;
   }
-  const poems = store.stores.poems.getState();
+  const poems = store.stores.poems.getState() || [];
   const error = store.request.hasError(key);
   return <Instapoetry poems={poems} error={error} />;
 }

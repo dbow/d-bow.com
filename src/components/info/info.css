@@ -1,4 +1,4 @@
 .email {
-  composes: italic from 'common';
+  composes: italic from '~common';
 }
 

@@ -88,17 +88,10 @@ function getMediumPosts() {
 }
 
 function getInstagramEmbed(url) {
-  const OEMBED_URL = 'http://api.instagram.com/oembed';
-  const query = {
-    url,
-    beta: true,
-    omitscript: true,
-  };
+  const OEMBED_URL = `https://api.instagram.com/oembed?url=${encodeURIComponent(url)}&omitscript=true`;
   return new Promise((resolve, reject) => {
     request
-      .get(OEMBED_URL)
-      .query(query)
-      .end((error, response) => {
+      .get(OEMBED_URL, function (error, response) {
         const content = response && response.body;
         if (error || !content || _.isEmpty(content)) {
           reject(error, content);
