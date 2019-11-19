@@ -33,7 +33,8 @@ app.use('/audio', express.static(__dirname + '/audio'));
 
 app.use('/api', api);
 
-process.env.API_URL = process.env.API_URL || `http://127.0.0.1:${PORT}/api/`;
+process.env.API_URL = DEVELOPMENT ? `http://127.0.0.1:${PORT}/api/` :
+  `http://${process.env.GAE_VERSION}.${process.env.GAE_SERVICE}.${process.env.GOOGLE_CLOUD_PROJECT}.appspot.com/api/`;
 
 // Serve up /build directory statically when not doing hot module replacement.
 if (!HOT_MODULE_REPLACEMENT) {
