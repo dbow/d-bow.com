@@ -4,15 +4,15 @@ import tumblr from 'tumblr.js';
 import request from 'superagent';
 import {rss} from 'feed-read';
 
-let env;
-try {
-  env = require('./env.json');
-  _.defaults(process.env, env);
-} catch (error) {
-  if (error.code === 'MODULE_NOT_FOUND'){
-    console.log('No env.json found. Assuming production.');
-  } else {
-    console.log('Error loading env', error);
+if (process.env.NODE_ENV === 'development') {
+  const yaml = require('js-yaml');
+  const fs   = require('fs');
+  const path = require('path');
+  try {
+    const doc = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../credentials.yaml'), 'utf8'));
+    _.defaults(process.env, doc['env_variables']);
+  } catch (e) {
+    console.log(e);
   }
 }
 

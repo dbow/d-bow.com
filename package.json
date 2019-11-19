@@ -1,9 +1,9 @@
 {
   "name": "d-bow.com",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "www.d-bow.com portfolio site!",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=12"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "start:dev": "NODE_ENV=development node_modules/nodemon/bin/nodemon.js build/server/index.js",
     "start:hot": "HMR=true npm run start:dev",
     "hot": "NODE_ENV=development node webpack-dev-server.js",
-    "postinstall": "npm run build"
+    "gcp-build": "NODE_ENV=production npm run build"
   },
   "license": "MIT",
   "author": {
@@ -29,25 +29,29 @@
     "email": "danny@d-bow.com"
   },
   "devDependencies": {
-    "nodemon": "1.19.4",
-    "webpack-dev-server": "3.8.2"
-  },
-  "dependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
-    "autoprefixer": "9.6.5",
-    "babel-loader": "8.0.6",
-    "body-parser": "1.19.0",
-    "css-loader": "3.2.0",
+    "autoprefixer": "^9.6.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "nodemon": "^1.19.4",
+    "null-loader": "^3.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "rimraf": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "dependencies": {
     "express": "4.17.1",
     "feed-read": "0.0.1",
+    "js-yaml": "^3.13.1",
     "lodash": "4.17.15",
-    "mini-css-extract-plugin": "0.8.0",
-    "null-loader": "3.0.0",
-    "postcss-import": "12.0.1",
-    "postcss-loader": "3.0.0",
     "prop-types": "15.7.2",
     "pug": "2.0.4",
     "react": "16.10.2",
@@ -55,15 +59,10 @@
     "react-dom": "16.10.2",
     "react-router": "^3.2.4",
     "redial": "0.5.0",
-    "request": "2.88.0",
-    "rimraf": "3.0.0",
     "serialize-javascript": "2.1.0",
     "serve-favicon": "2.5.0",
     "source-map-support": "0.5.13",
-    "style-loader": "1.0.0",
     "superagent": "5.1.0",
-    "tumblr.js": "2.0.2",
-    "webpack": "4.41.2",
-    "webpack-cli": "3.3.9"
+    "tumblr.js": "2.0.2"
   }
 }
