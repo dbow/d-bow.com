@@ -2,3 +2,12 @@ runtime: nodejs12
 
 includes:
 - credentials.yaml
+
+handlers:
+- url: /api/.*
+  script: auto
+
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
