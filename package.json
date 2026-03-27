@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "www.d-bow.com portfolio site",
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vite",
