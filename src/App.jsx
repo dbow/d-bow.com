@@ -33,7 +33,7 @@ function Layout() {
         <div key={color} className="hidden min-[820px]:block fixed top-0" style={{
           left: `calc(var(--tr-stripe-base) + ${i * 22}px)`,
           width: 10,
-          height: '100vh',
+          height: '100vmax',
           background: color,
           transform: 'rotate(-45deg)',
           transformOrigin: 'top left',
