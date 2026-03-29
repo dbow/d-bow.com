@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pink: rgb(255, 0, 116);
-  --color-gray: rgba(0, 0, 0, 0.60);
-  --font-serif: 'livory', 'Palatino', serif;
+  --color-pink: #DB726C;
+  --color-gray: #DBD5B5;
+  --font-serif: 'yorkten-slab-normal', serif;
   --font-baskerville: baskerville, serif;
 }
 
@@ -12,11 +12,11 @@
     margin: 0;
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: #505C52;
   }
 
   body {
-    font-size: 25px;
+    font-size: 21px;
     margin: 0 auto;
     width: 600px;
     line-height: 1.3;
@@ -38,7 +38,7 @@
     body {
       width: 90%;
       min-width: 300px;
-      font-size: 20px;
+      font-size: 17px;
     }
   }
 }
