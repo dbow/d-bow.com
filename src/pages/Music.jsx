@@ -27,6 +27,17 @@ function Quote({ children }) {
 export default function Music() {
   return (
     <div>
+      <MusicItem image="utmost.jpeg" title="The Utmost Something - Growing Up EP" href="https://distrokid.com/hyperfollow/theutmostsomething/growing-up">
+        <Section>
+          <iframe style={{ borderRadius: '12px', border: 0, width: '100%', height: '352px' }} src="https://open.spotify.com/embed/album/6MkNMMoQhTBCQCHZGKMk6E?utm_source=generator" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Growing Up EP by The Utmost Something" />
+        </Section>
+        <Section>
+          Recorded & mixed by Robert Kirby.<br />
+          Mastered by Amar Lal at Macro Sound.<br />
+          Recorded at Sharkbite Studios in Oakland, CA.
+        </Section>
+      </MusicItem>
+
       <MusicItem image="creeps.jpg" title="Car Creeps - S/T (2013)" href="https://carcreeps.bandcamp.com/">
         <Section>
           Car Creeps was born in the spring of 2010 and died shortly thereafter. They almost played a show once, but the venue shut down before the show could happen.
