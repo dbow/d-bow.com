@@ -1,6 +1,6 @@
 function WorkItem({ image, title, href, video, children }) {
   return (
-    <div className="relative overflow-hidden bg-black my-[70px] min-h-[300px] p-[30px] first:mt-[30px]">
+    <div className="relative overflow-hidden bg-black my-[70px] max-[615px]:my-[40px] min-h-[300px] max-[615px]:min-h-[200px] p-[30px] max-[615px]:py-[50px] first:mt-[30px]">
       <div
         className="absolute w-[110%] h-[110%] -left-[5%] -top-[5%] blur-[5px] bg-cover bg-top bg-no-repeat z-0"
         style={{ backgroundImage: `url(/images/${image})` }}
@@ -20,12 +20,12 @@ function WorkItem({ image, title, href, video, children }) {
         </video>
       )}
       <div className="relative p-5 z-[2] max-[615px]:p-0">
-        <h4 className="inline m-0 text-[40px] max-[615px]:text-[30px] text-white bg-[rgba(219,114,108,0.85)] leading-[1em]">
+        <h4 className="inline m-0 text-[40px] max-[615px]:text-[30px] text-white bg-[rgba(49,66,60,0.85)] leading-[1em]">
           <a href={href} className="text-white font-normal p-[10px] tracking-[-0.01em] hover:text-white">
             {title}
           </a>
         </h4>
-        <p className="bg-[rgba(50,62,55,0.88)] p-[10px]">{children}</p>
+        <p className="bg-[rgba(41,40,34,0.88)] p-[10px]">{children}</p>
       </div>
     </div>
   )

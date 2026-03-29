@@ -4,7 +4,7 @@ function MusicItem({ image, title, href, children }) {
       <div className="relative">
         <img src={`/images/${image}`} alt={title} className="w-full" />
         <div className="absolute top-0 left-0 p-[50px] z-[2] max-[615px]:p-[30px]">
-          <h4 className="inline m-0 text-[40px] max-[615px]:text-[30px] text-white bg-[rgba(219,114,108,0.85)] leading-[1em] relative">
+          <h4 className="inline m-0 text-[40px] max-[615px]:text-[30px] text-white bg-[rgba(49,66,60,0.85)] leading-[1em] relative">
             <a href={href} className="text-white font-normal p-[10px] tracking-[-0.01em] hover:text-white">
               {title}
             </a>

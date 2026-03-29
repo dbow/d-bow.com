@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const BG = '#505C52'
+const BG = '#222'
 const LINK_COLORS = {
-  work:  '#DB726C',
-  music: '#DB726C',
-  info:  '#DB726C',
+  work:  '#566956',
+  music: '#566956',
+  info:  '#566956',
 }
 
 const COLORS = [
-  [255, 252, 240],
-  [255, 252, 240],
-  [219, 213, 181],
-  [255, 255, 255],
+  [217, 144, 101],
+  [217, 144, 101],
+  [230, 165, 120],
+  [245, 190, 145],
 ]
 
 class Particle {
@@ -148,7 +148,7 @@ export default function Home() {
       // Vignette before word rects so coral is unaffected
       const vig = ctx.createRadialGradient(w * 0.5, h * 0.5, h * 0.22, w * 0.5, h * 0.5, h * 0.92)
       vig.addColorStop(0, 'rgba(0,0,0,0)')
-      vig.addColorStop(1, 'rgba(30,36,32,0.55)')
+      vig.addColorStop(1, 'rgba(20,20,20,0.65)')
       ctx.fillStyle = vig
       ctx.fillRect(0, 0, w, h)
 
@@ -236,9 +236,9 @@ export default function Home() {
         style={{ zIndex: 0, pointerEvents: 'none' }}
       />
       {/* Racing stripes */}
-      <div className="absolute top-0 right-6 sm:right-10 flex gap-2.5 items-start" style={{ zIndex: 3, pointerEvents: 'none' }}>
-        <div className="w-[14px] h-[50vh]" style={{ background: '#DBB066' }} />
-        <div className="w-[14px] h-[calc(50vh-20px)]" style={{ background: '#DB7D5E' }} />
+      <div className="absolute top-0 right-2 sm:right-10 flex gap-1.5 sm:gap-2.5 items-start" style={{ zIndex: 3, pointerEvents: 'none' }}>
+        <div className="w-[8px] sm:w-[14px] h-[50vh]" style={{ background: '#D99065' }} />
+        <div className="w-[8px] sm:w-[14px] h-[calc(50vh-20px)]" style={{ background: '#d55c86' }} />
       </div>
 
       {/* Canvas 2: solid green mask with transparent holes revealing Canvas 1 */}
@@ -262,7 +262,7 @@ export default function Home() {
             lineHeight: 1.0,
             letterSpacing: '-0.02em',
             width: '100%',
-            color: '#DBD5B5',
+            color: '#e8ddd0',
           }}
         >
           <span>Danny<br />Bowman{'\u2019'}s<br /></span>
