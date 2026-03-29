@@ -7,6 +7,16 @@
   --font-baskerville: baskerville, serif;
 }
 
+:root {
+  --tr-stripe-base: calc(50vw + 320px);
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --tr-stripe-base: calc(75vw + 84px);
+  }
+}
+
 @layer base {
   html {
     margin: 0;
@@ -41,7 +51,7 @@
     font-weight: 400;
   }
 
-  @media (max-width: 615px) {
+  @media (max-width: 720px) {
     body {
       width: 90%;
       min-width: 300px;

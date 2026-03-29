@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="text-center text-[15px] my-10">
+    <footer className="text-center text-[15px] mt-10 mb-10 pb-8">
       <div className="mb-2">
         <a
           href="https://github.com/dbow"
