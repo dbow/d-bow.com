@@ -2,7 +2,7 @@ function MusicItem({ image, title, href, children }) {
   return (
     <div className="relative my-[70px] min-h-[300px] first:mt-[30px]">
       <div className="relative">
-        <img src={`/images/${image}`} alt={title} className="w-full" />
+        <img src={`/images/${image}`} alt={title} className="w-full" loading="lazy" />
         <div className="absolute top-0 left-0 p-[50px] z-[2] max-[615px]:p-[30px]">
           <h4 className="inline m-0 text-[40px] max-[615px]:text-[30px] text-white bg-[rgba(49,66,60,0.85)] leading-[1em] relative">
             <a href={href} className="text-white font-normal p-[10px] tracking-[-0.01em] hover:text-white">
@@ -51,7 +51,7 @@ export default function Music() {
 
       <MusicItem image="majic.jpg" title="The Majic Eyes - S/T (2009)" href="http://lcmrrecords.com/themagiceyes.html">
         <Section>
-          <audio controls preload="metadata">
+          <audio controls preload="metadata" aria-label="The Majic Eyes - It's Time to Go">
             <source src="/audio/themagiceyes_-_07_-_its_time_to_go.mp3" type="audio/mp3" />
           </audio>
         </Section>

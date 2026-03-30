@@ -16,6 +16,7 @@ function WorkItem({ image, title, href, video, children }) {
           muted
           playsInline
           preload="none"
+          poster={`/images/${image}`}
         >
           {video.map(({ src, type }) => (
             <source key={src} src={src} type={type} />

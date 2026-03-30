@@ -11,7 +11,7 @@ function Layout() {
   return (
     <div>
       {/* Desktop left L-shaped stripes — vertical then turning left to screen edge */}
-      <div className="hidden min-[820px]:block fixed top-0 left-0" style={{ right: 'calc(75vw + 130px)', zIndex: 50, pointerEvents: 'none' }}>
+      <div className="hidden min-[820px]:block fixed top-0 left-0" aria-hidden="true" style={{ right: 'calc(75vw + 130px)', zIndex: 50, pointerEvents: 'none' }}>
         {[
           { color: '#D99065' },
           { color: '#d55c86' },
@@ -31,7 +31,7 @@ function Layout() {
 
       {/* Desktop right diagonal stripes — 45° from content right edge toward viewport right */}
       {['#D99065', '#d55c86', '#566956', '#736D62'].map((color, i) => (
-        <div key={color} className="hidden min-[820px]:block fixed top-0" style={{
+        <div key={color} aria-hidden="true" className="hidden min-[820px]:block fixed top-0" style={{
           left: `calc(var(--tr-stripe-base) + ${i * 22}px)`,
           width: 10,
           height: '100vmax',
@@ -44,7 +44,7 @@ function Layout() {
       ))}
 
       {/* Mobile L-shaped stripes */}
-      <div className="min-[820px]:hidden" style={{ position: 'relative', left: 'calc(-50vw + 50%)', width: '100vw', marginTop: 10, pointerEvents: 'none', height: 29, overflow: 'visible' }}>
+      <div aria-hidden="true" className="min-[820px]:hidden" style={{ position: 'relative', left: 'calc(-50vw + 50%)', width: '100vw', marginTop: 10, pointerEvents: 'none', height: 29, overflow: 'visible' }}>
         {[
           { color: '#D99065', tail: 88 },
           { color: '#d55c86', tail: 72 },

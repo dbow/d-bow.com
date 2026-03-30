@@ -252,7 +252,7 @@ export default function Home() {
         style={{ zIndex: 0, pointerEvents: 'none' }}
       />
       {/* Mobile L-shaped stripes */}
-      <div className="min-[820px]:hidden" style={{ position: 'absolute', top: 10, left: 0, right: 0, height: 29, overflow: 'visible', pointerEvents: 'none', zIndex: 3 }}>
+      <div aria-hidden="true" className="min-[820px]:hidden" style={{ position: 'absolute', top: 10, left: 0, right: 0, height: 29, overflow: 'visible', pointerEvents: 'none', zIndex: 3 }}>
         {[
           { color: '#D99065', tail: 88 },
           { color: '#d55c86', tail: 72 },
@@ -268,7 +268,7 @@ export default function Home() {
 
       {/* Diagonal stripes — desktop only */}
       {['#D99065', '#d55c86', '#566956', '#736D62'].map((color, i) => (
-        <div key={color} className="absolute top-0 hidden min-[820px]:block" style={{
+        <div key={color} aria-hidden="true" className="absolute top-0 hidden min-[820px]:block" style={{
           left: `calc(50vw + ${i * 22}px)`,
           width: 10,
           height: '100vmax',
@@ -308,7 +308,7 @@ export default function Home() {
           <span>
             <Link
               to="/work"
-              className="text-inherit no-underline hover:text-pink"
+              className="text-inherit no-underline hover:text-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
               style={{ cursor: 'pointer' }}
               onMouseEnter={() => setHovered('work')}
               onMouseLeave={() => setHovered(null)}
@@ -320,7 +320,7 @@ export default function Home() {
           <span>
             <Link
               to="/music"
-              className="text-inherit no-underline hover:text-pink"
+              className="text-inherit no-underline hover:text-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
               style={{ cursor: 'pointer' }}
               onMouseEnter={() => setHovered('music')}
               onMouseLeave={() => setHovered(null)}
@@ -332,7 +332,7 @@ export default function Home() {
           <span>
             <Link
               to="/info"
-              className="text-inherit no-underline hover:text-pink"
+              className="text-inherit no-underline hover:text-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
               style={{ cursor: 'pointer' }}
               onMouseEnter={() => setHovered('info')}
               onMouseLeave={() => setHovered(null)}
