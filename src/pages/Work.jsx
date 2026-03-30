@@ -1,4 +1,7 @@
+import { useTheme } from '../context/ThemeContext.jsx'
+
 function WorkItem({ image, title, href, video, children }) {
+  const { theme } = useTheme()
   return (
     <div className="relative overflow-hidden bg-black my-[70px] max-[615px]:my-[40px] min-h-[300px] max-[615px]:min-h-[200px] p-[30px] max-[615px]:py-[50px] first:mt-[30px]">
       <div
@@ -20,12 +23,22 @@ function WorkItem({ image, title, href, video, children }) {
         </video>
       )}
       <div className="relative p-5 z-[2] max-[615px]:p-0">
-        <h4 className="inline m-0 text-[40px] max-[615px]:text-[30px] text-white bg-[rgba(49,66,60,0.85)] leading-[1em]">
-          <a href={href} className="text-white font-normal p-[10px] tracking-[-0.01em] hover:text-white">
+        <h4
+          className="inline m-0 text-[40px] max-[615px]:text-[30px] leading-[1em]"
+          style={{ background: theme === 'light' ? 'rgba(232,221,208,0.85)' : 'rgba(49,66,60,0.85)' }}
+        >
+          <a
+            href={href}
+            style={{ color: theme === 'light' ? '#222' : 'white' }}
+            className="font-normal p-[10px] tracking-[-0.01em]"
+          >
             {title}
           </a>
         </h4>
-        <p className="bg-[rgba(41,40,34,0.88)] p-[10px]">{children}</p>
+        <p
+          className="p-[10px]"
+          style={{ background: theme === 'light' ? 'rgba(232,221,208,0.88)' : 'rgba(41,40,34,0.88)' }}
+        >{children}</p>
       </div>
     </div>
   )

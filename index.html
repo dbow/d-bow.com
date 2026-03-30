@@ -15,6 +15,15 @@
     <meta name="theme-color" content="#222222" />
     <title>@dbow</title>
 
+    <!-- Theme: set data-theme before render to avoid flash -->
+    <script>
+      (function() {
+        var stored = localStorage.getItem('theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
     <!-- Adobe Fonts (Typekit) -->
     <link rel="dns-prefetch" href="https://use.typekit.net" />
     <script>

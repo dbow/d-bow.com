@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext.jsx'
+import ThemeToggle from '../components/ThemeToggle.jsx'
 
 const BG = '#222'
 const LINK_COLORS = {
@@ -77,6 +79,8 @@ class Particle {
 }
 
 export default function Home() {
+  const { theme } = useTheme()
+  const themeRef = useRef(theme)
   const particleCanvasRef = useRef(null)
   const maskCanvasRef     = useRef(null)
   const navRef            = useRef(null)
@@ -84,6 +88,10 @@ export default function Home() {
   const wordRectsRef      = useRef({})
   const boostRef          = useRef(false)
   const [hovered, setHovered] = useState(null)
+
+  useEffect(() => {
+    themeRef.current = theme
+  }, [theme])
 
   useEffect(() => {
     boostRef.current = hovered !== null
@@ -149,7 +157,8 @@ export default function Home() {
       const w = pc.width, h = pc.height
 
       // — Canvas 1: bg → vignette → word rects → particles —
-      ctx.fillStyle = BG
+      const bg = themeRef.current === 'light' ? '#e8ddd0' : BG
+      ctx.fillStyle = bg
       ctx.fillRect(0, 0, w, h)
 
       // Vignette before word rects so coral is unaffected
@@ -161,7 +170,7 @@ export default function Home() {
 
       for (const [key, rect] of Object.entries(rects)) {
         if (rect) {
-          ctx.filter = 'brightness(0.3)'
+          ctx.filter = `brightness(${themeRef.current === 'light' ? 0.7 : 0.3})`
           ctx.fillStyle = bgPattern || LINK_COLORS[key]
           ctx.fillRect(rect.left, rect.top, rect.width, rect.height)
           ctx.filter = 'none'
@@ -203,7 +212,7 @@ export default function Home() {
 
       // — Canvas 2: solid BG, letter-shaped holes punched at each link word —
       mCtx.clearRect(0, 0, w, h)
-      mCtx.fillStyle = BG
+      mCtx.fillStyle = bg
       mCtx.fillRect(0, 0, w, h)
       const fontSize = parseFloat(navRef.current?.style.fontSize || '0')
       if (fontSize > 0) {
@@ -235,7 +244,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="fixed inset-0" style={{ background: BG }}>
+    <div className="fixed inset-0" style={{ background: theme === 'light' ? '#e8ddd0' : BG }}>
       {/* Canvas 1: particles on top of pink link-word backgrounds */}
       <canvas
         ref={particleCanvasRef}
@@ -292,7 +301,7 @@ export default function Home() {
             lineHeight: 1.0,
             letterSpacing: '-0.02em',
             width: '100%',
-            color: '#e8ddd0',
+            color: theme === 'light' ? '#222' : '#e8ddd0',
           }}
         >
           <span ref={dbowRef} style={{ color: 'transparent' }}>@dbow{'\u2019'}s<br /></span>
@@ -334,6 +343,7 @@ export default function Home() {
           <span>.</span>
         </nav>
       </div>
+      <ThemeToggle />
     </div>
   )
 }

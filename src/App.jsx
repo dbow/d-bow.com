@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx'
 import Info from './pages/Info.jsx'
 import Work from './pages/Work.jsx'
 import Music from './pages/Music.jsx'
+import ThemeToggle from './components/ThemeToggle.jsx'
 
 function Layout() {
   return (
@@ -59,6 +60,7 @@ function Layout() {
       <Nav />
       <Outlet />
       <Footer />
+      <ThemeToggle />
     </div>
   )
 }

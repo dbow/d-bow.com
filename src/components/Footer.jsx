@@ -1,10 +1,13 @@
+import { useTheme } from '../context/ThemeContext.jsx'
+
 export default function Footer() {
+  const { theme } = useTheme()
   return (
     <footer className="text-center text-[15px] mt-10 mb-10 pb-8">
       <div className="mb-2">
         <a
           href="https://github.com/dbow"
-          className="inline-block w-[25px] mx-[5px] text-gray hover:text-pink"
+          className={`inline-block w-[25px] mx-[5px] hover:text-pink ${theme === 'light' ? 'text-[#222]' : 'text-gray'}`}
           aria-label="GitHub"
         >
           <svg viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +29,7 @@ export default function Footer() {
         </a>
         <a
           href="http://www.linkedin.com/in/dbowman123"
-          className="inline-block w-[25px] mx-[5px] text-gray hover:text-pink"
+          className={`inline-block w-[25px] mx-[5px] hover:text-pink ${theme === 'light' ? 'text-[#222]' : 'text-gray'}`}
           aria-label="LinkedIn"
         >
           <svg viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
