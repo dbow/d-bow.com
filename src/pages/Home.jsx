@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const BG = '#e8ddd0'
+const BG = '#222'
 const LINK_COLORS = {
   dbow: '#000',
 }
@@ -161,8 +161,10 @@ export default function Home() {
 
       for (const [key, rect] of Object.entries(rects)) {
         if (rect) {
+          ctx.filter = 'brightness(0.3)'
           ctx.fillStyle = bgPattern || LINK_COLORS[key]
           ctx.fillRect(rect.left, rect.top, rect.width, rect.height)
+          ctx.filter = 'none'
         }
       }
 
@@ -290,7 +292,7 @@ export default function Home() {
             lineHeight: 1.0,
             letterSpacing: '-0.02em',
             width: '100%',
-            color: '#222',
+            color: '#e8ddd0',
           }}
         >
           <span ref={dbowRef} style={{ color: 'transparent' }}>@dbow{'\u2019'}s<br /></span>
