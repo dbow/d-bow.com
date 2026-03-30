@@ -170,10 +170,12 @@ export default function Home() {
 
       for (const [key, rect] of Object.entries(rects)) {
         if (rect) {
-          ctx.filter = `brightness(${themeRef.current === 'light' ? 0.7 : 0.3})`
           ctx.fillStyle = bgPattern || LINK_COLORS[key]
           ctx.fillRect(rect.left, rect.top, rect.width, rect.height)
-          ctx.filter = 'none'
+          // Darken overlay (ctx.filter unsupported in older Safari)
+          const overlayAlpha = themeRef.current === 'light' ? 0.3 : 0.7
+          ctx.fillStyle = `rgba(0,0,0,${overlayAlpha})`
+          ctx.fillRect(rect.left, rect.top, rect.width, rect.height)
         }
       }
 
