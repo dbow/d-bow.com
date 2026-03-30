@@ -28,3 +28,11 @@ gcloud app deploy
 ```
 
 App Engine runs `npm run build` automatically on deploy (`gcp-build` script), so `npm run build` is optional if you just want to ship.
+
+## Redesign
+
+- **Color palette:** https://color.adobe.com/d-bow.com-theme-color-theme-f5602028-db3d-4e57-8af8-839c4417c05f/
+- **Design inspiration:** 80s retro stripes
+- **Fonts:** Mr Eaves XL and Yorkten Slab via Adobe Fonts
+- **Landing page:** Knockout text effect with a dark tropical forest wallpaper pattern and ethereal fireflies/particles floating in the background
+- **Fully responsive** with light and dark mode themes
