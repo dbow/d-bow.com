@@ -27,7 +27,7 @@ function Quote({ children }) {
 export default function Music() {
   return (
     <div>
-      <MusicItem image="utmost.jpeg" title="The Utmost Something - Growing Up EP" href="https://distrokid.com/hyperfollow/theutmostsomething/growing-up">
+      <MusicItem image="utmost.jpeg" title="The Utmost Something - Growing Up EP (2025)" href="https://distrokid.com/hyperfollow/theutmostsomething/growing-up">
         <Section>
           <iframe style={{ borderRadius: '12px', border: 0, width: '100%', height: '352px' }} src="https://open.spotify.com/embed/album/6MkNMMoQhTBCQCHZGKMk6E?utm_source=generator" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Growing Up EP by The Utmost Something" />
         </Section>
